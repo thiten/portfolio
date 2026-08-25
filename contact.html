@@ -15,7 +15,7 @@
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
         /* ================== SEU CABEÇALHO ================== */
-       header {
+      header {
     display: flex;
     justify-content: space-between; /* Logo na esquerda, menu na direita */
     align-items: flex-start;
@@ -27,6 +27,17 @@ header img {
     height: auto;
 }
 
+/* Cor específica para os ícones sociais (verde claro) */
+.social-icons a {
+    color: #C5F527 !important; /* O !important garante que a cor verde não seja sobrescrita */
+}
+
+      .social-icons a {
+    color: #C5F527 !important; /* Mantém a cor verde */
+    font-size: 1.2rem;         /* Aumenta o tamanho dos ícones (ex: 1.8rem é bem maior) */
+    transition: color 0.3s;    /* Mantém a transição suave */
+}
+      
 nav {
     display: flex;
     align-items: center;
