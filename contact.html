@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago Tenorio - Portfólio</title>
+    <!-- Fonte do seu header -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Ícones das redes sociais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Reset e Fonte */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
+
+        /* ================== SEU CABEÇALHO ================== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 30px 60px;
+        }
+
+        .logo img { width: 250px; height: auto; margin-top: -5px; }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-left: auto;
+        }
+
+        nav a { text-decoration: none; color: #333; transition: color 0.3s; }
+        nav a:hover { color: #ffae7a; }
+
+        .social-icons { display: flex; gap: 15px; align-items: center; margin-left: 20px; }
+        .social-icons a { color: #C5F527; font-size: 1.2rem; }
+        .social-icons a:hover { color: #7aa0b5; }
+
+        /* ================== CORPO DA NOVA PÁGINA ================== */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Coluna da Imagem (Esquerda) */
+        .visual-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .photos-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .polaroid:hover { transform: rotate(-3deg) scale(1.05); }
+
+        .polaroid img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Coluna de Texto (Direita) */
+        .text-column h2 {
+            font-size: 2rem;
+            color: #7aa0b5; /* Azul suave como no anexo */
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .text-column h2:first-child { margin-top: 0; }
+
+        .text-column p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .text-column .highlight-email {
+            font-weight: 600;
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .text-column .secondary-text {
+            color: #ccc; /* Texto apagado como no anexo */
+            margin-bottom: 5px;
+        }
+
+        /* Clientes */
+        .clients-list {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Livros */
+        .books-list {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .books-list strong {
+            color: #333;
+        }
+
+        /* ================== SEU RODAPÉ ================== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            width: 100%;
+        }
+
+        .back-to-top {
+            display: block;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-left: 0;
+            }
+
+            .page-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .visual-column {
+                order: -1; /* Coloca a imagem primeiro em telas menores */
+            }
+
+            .photos-container {
+                flex-wrap: wrap;
+            }
+
+            .text-column h2 {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== SEU CABEÇALHO ================== -->
+    <header>
+        <div class="logo">
+            <img src="https://i.postimg.cc/RhL20MTC/Captura-de-tela-de-2026-08-24-20-21-00.png" alt="Thiago Tenorio">
+        </div>
+        <nav>
+            <a href="https://thiten.github.io/portfolio/">Home</a>
+            <a href="#">Books</a>
+            <a href="#">Editorial</a>
+            <a href="#">Contact</a>
+            <div class="social-icons">
+                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================== CORPO DA PÁGINA (COMO NO ANEXO) ================== -->
+    <main class="page-container">
+        
+        <!-- Coluna Visual (Imagens) -->
+        <div class="visual-column">
+            <!-- Ilustração principal -->
+            <img src="https://i.postimg.cc/mgb0p4pc/Captura-de-tela-de-2026-08-25-16-44-08.png" alt="Thiten" class="illustration">
+            
+            <!-- Fotos estilo Polaroid -->
+           
+            </div>
+      
+
+        <!-- Coluna de Texto -->
+        <div class="text-column">
+            
+            <!-- Seção Contact -->
+            <h2>Contact</h2>
+            <p>
+                Tem um projeto e precisa de ilustrações como as minhas? Entre em contato e vamos conversar! 
+                <a href="mailto:thiten.illust@gmail.com" class="highlight-email">thiten.illust@gmail.com</a>
+            </p>
+            <p class="secondary-text">
+                Do you have any project that demands illustrations such as mine?<br>
+                Keep in touch and let's talk about it: <span class="secondary-text">thiten.illust@gmail.com</span>
+            </p>
+
+            <!-- Seção About me -->
+            <h2>About me</h2>
+            <p>
+                Natural de Maceió, Alagoas, Thiago Tenorio é ilustrador formado pela Quanta Academia de Artes. 
+                Atua no mercado editorial há três anos, desenvolvendo projetos de livros infantis e didáticos para 
+                empresas como IMEPH, Scriba, Saraiva, Saber, Somos, Asinha, entre outras. Maior que a 
+                responsabilidade de ilustrar um livro infantil, só a alegria e o prazer de contribuir para a 
+                educação das novas gerações. Arte educa.
+            </p>
+            <p class="secondary-text">
+                Originally from Maceió, Alagoas, Thiago Tenorio is an illustrator trained at Quanta Academia de Artes. 
+                He has been working in the publishing market for three years, developing children's and educational 
+                book projects for companies such as IMEPH, Scriba, Saraiva, Saber, Somos, Asinha, among others. 
+                Greater than the responsibility of illustrating a children's book is the joy and pleasure of 
+                contributing to the education of new generations. Art educates.
+            </p>
+
+            <!-- Seção Former clients -->
+            <h2>Former clients</h2>
+            <div class="clients-list">
+                Somos Educação | Saber Educação | Saraiva Educação<br>
+                Sintonia Educação | Scriba Soluções Editoriais | Editora IMEPH<br>
+                Editora Asinha | Fun kids & agers
+            </div>
+
+            <!-- Seção Books -->
+            <h2>Books</h2>
+            <div class="books-list">
+                <strong>2025.</strong> O Gato escritor, Patrícia Blum, Editora Asinha<br>
+                <strong>2026.</strong> O hipopótamo e o jabuti, Sintonia Educação<br>
+                <strong>2026.</strong> O grande passeio - Fred e seus amigos conhecendo os monumentos de Juazeiro da Bahia, Manilda Rosa, Editora IMEPH
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================== SEU RODAPÉ ================== -->
+    <footer>
+        <a href="#" class="back-to-top">↑ Back to top</a>
+        thiten.illust@gmail.com
+    </footer>
+
+    <script>
+        // Força todos os links a abrirem na mesma aba
+        document.addEventListener('click', function(event) {
+            var link = event.target.closest('a');
+            if (link && link.href.includes('sites.google.com')) {
+                event.preventDefault();
+                window.location.href = link.href;
+            }
+        });
+    </script>
+  
+</body>
+</html>
