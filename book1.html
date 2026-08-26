@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,113 +5,171 @@
     <title>Thiago Tenorio - Portfólio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
 
     <style>
-
-
- 
+   <link rel="stylesheet" href="styles.css">
         
-        /* Reset e Fonte */
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
-        /* ================== SEU CABEÇALHO (Inalterado) ================== */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 30px 60px;
-        }
+    display: flex;
+    justify-content: space-between; /* Logo na esquerda, menu na direita */
+    align-items: flex-start;
+    padding: 30px 60px;
+}
 
-        .logo img { width: 250px; height: auto; margin-top: -5px; }
+header img {
+    width: 150px;
+    height: auto;
+}
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 15px;
-            margin-left: auto;
-        }
 
-        nav a { text-decoration: none; color: #333; transition: color 0.3s; }
+      .social-icons a {
+    color: #C5F527 !important; /* Mantém a cor verde */
+    font-size: 1.2rem;         /* Aumenta o tamanho dos ícones (ex: 1.8rem é bem maior) */
+    transition: color 0.3s;    /* Mantém a transição suave */
+}
+      
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+nav a { text-decoration: none; color: #333; transition: color 0.3s; }
         nav a:hover { color: #ffae7a; }
+        
+/* Responsividade para Celulares e Tablets */
+@media (max-width: 900px) {
+    /* Cabeçalho - Centralizado APENAS no mobile/tablet */
+    header {
+        flex-direction: column; 
+        align-items: center;    
+        justify-content: center;
+        padding: 20px;
+        gap: 15px;
+    }
 
-        .social-icons { display: flex; gap: 15px; align-items: center; margin-left: 20px; }
-        .social-icons a { color: #C5F527; font-size: 1.2rem; }
-        .social-icons a:hover { color: #7aa0b5; }
+    header img {
+        width: 120px; 
+    }
 
-        /* ================== NOVO CORPO DA PÁGINA INTERNA ================== */
-        .internal-body {
-            max-width: 900px; /* Largura máxima do conteúdo (semelhante à imagem) */
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    nav {
+        gap: 15px;
+        font-size: 0.7rem;
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
 
-        .page-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    main {
+        padding: 10px;
+    }
 
-        .page-title h1 {
-            font-size: 2rem;
-            font-weight: 300;
-            color: #8faf5d; /* Tom de verde claro */
-            margin-bottom: 5px;
-        }
-
-        .page-title h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #b8c7e0; /* Tom de azul claro */
-        }
-
-        .image-stack {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px; /* Espaço entre as imagens verticais */
-        }
-
-        .stack-item {
+    /* Aumenta a imagem principal em telas menores */
+    main img {
+        width: 100vw;       
+        max-width: 100vw;   
+    }
+}
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 320px;
+            grid-auto-flow: row dense;
+            gap: 0px;
             width: 100%;
-            text-align: center;
         }
 
-        /* ==========================================================
-           CONTROLE DE TAMANHO DA IMAGEM:
-           Para alterar o tamanho, basta modificar a propriedade "width" 
-           abaixo (ex: 100%, 80%, 50%) ou adicionar "height" em px.
-           ========================================================== */
-        .stack-item img {
-            width: 100%; /* Altere este valor para redimensionar a imagem */
-            max-width: 700px; /* Tamanho máximo opcional */
-            height: auto;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            margin: 0 auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave opcional */
+            transition: transform 0.4s ease;
         }
 
-        .image-caption {
-            margin-top: 10px;
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(197, 245, 39, 0.85));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover::before { opacity: 1; }
+
+        /* LINK CLICÁVEL - Solução mais robusta */
+        .gallery-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        /* Informações */
+        .gallery-info {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 2;
+            width: 90%;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover .gallery-info { opacity: 1; }
+
+        .gallery-info h3 { font-size: 1.3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 5px; }
+        .gallery-info p { font-size: 0.9rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
             font-size: 0.9rem;
-            color: #777;
-            font-style: italic;
+            color: #888;
+            border-top: 1px solid #eee;
+            width: 100%;
         }
 
-        /* Responsividade */
         @media (max-width: 900px) {
             header { flex-direction: column; align-items: center; }
             nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
-            .page-title h1 { font-size: 1.5rem; }
-            .page-title h2 { font-size: 1.1rem; }
-            /* Em telas menores, a imagem nunca ultrapassará a largura da tela */
-            .stack-item img { max-width: 100%; }
+            main { padding: 20px; }
+            .gallery-grid { grid-auto-rows: 250px; }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
         }
     </style>
 </head>
