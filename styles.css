@@ -316,4 +316,25 @@ footer {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
     }
+
+/* Aplique esta classe ao seu elemento principal, por exemplo, ao <body> ou um <div> */
+.fade-in-container {
+    /* Define o estado inicial como invisível antes da animação começar */
+    opacity: 0;
+
+    /* Aplica a animação chamada 'pageFadeIn' por 1.5 segundos */
+    animation: pageFadeIn 1.5s ease-in-out forwards;
+}
+
+/* Definição da animação */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+    
 }
