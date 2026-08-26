@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiago Tenorio - Página Interna</title>
-    <!-- Fonte do seu header -->
+    <title>Thiago Tenorio - Portfólio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Ícones das redes sociais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Reset e Fonte */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
-        /* ================== SEU CABEÇALHO (Inalterado) ================== */
         header {
             display: flex;
             justify-content: space-between;
@@ -43,79 +39,118 @@
         .social-icons a { color: #C5F527; font-size: 1.2rem; }
         .social-icons a:hover { color: #7aa0b5; }
 
-        /* ================== NOVO CORPO DA PÁGINA INTERNA ================== */
-        .internal-body {
-            max-width: 900px; /* Largura máxima do conteúdo (semelhante à imagem) */
+        main {
+            width: 100%;
+            padding: 20px 60px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .page-title h1 {
-            font-size: 2rem;
-            font-weight: 300;
-            color: #8faf5d; /* Tom de verde claro */
-            margin-bottom: 5px;
-        }
-
-        .page-title h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #b8c7e0; /* Tom de azul claro */
-        }
-
-        .image-stack {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px; /* Espaço entre as imagens verticais */
         }
 
-        .stack-item {
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 320px;
+            grid-auto-flow: row dense;
+            gap: 0px;
             width: 100%;
-            text-align: center;
         }
 
-        /* ==========================================================
-           CONTROLE DE TAMANHO DA IMAGEM:
-           Para alterar o tamanho, basta modificar a propriedade "width" 
-           abaixo (ex: 100%, 80%, 50%) ou adicionar "height" em px.
-           ========================================================== */
-        .stack-item img {
-            width: 100%; /* Altere este valor para redimensionar a imagem */
-            max-width: 700px; /* Tamanho máximo opcional */
-            height: auto;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            margin: 0 auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave opcional */
+            transition: transform 0.4s ease;
         }
 
-        .image-caption {
-            margin-top: 10px;
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(197, 245, 39, 0.85));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover::before { opacity: 1; }
+
+        /* LINK CLICÁVEL */
+        .gallery-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5; /* Acima de tudo */
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            background: transparent;
+        }
+
+        .gallery-link:hover {
+            background: transparent;
+        }
+
+        /* Informações */
+        .gallery-info {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 2;
+            width: 90%;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover .gallery-info { opacity: 1; }
+
+        .gallery-info h3 { font-size: 1.3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 5px; }
+        .gallery-info p { font-size: 0.9rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
             font-size: 0.9rem;
-            color: #777;
-            font-style: italic;
+            color: #888;
+            border-top: 1px solid #eee;
+            width: 100%;
         }
 
-        /* Responsividade */
         @media (max-width: 900px) {
             header { flex-direction: column; align-items: center; }
             nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
-            .page-title h1 { font-size: 1.5rem; }
-            .page-title h2 { font-size: 1.1rem; }
-            /* Em telas menores, a imagem nunca ultrapassará a largura da tela */
-            .stack-item img { max-width: 100%; }
+            main { padding: 20px; }
+            .gallery-grid { grid-auto-rows: 250px; }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ================== SEU CABEÇALHO (Exatamente igual) ================== -->
     <header>
         <div class="logo">
             <img src="https://i.postimg.cc/RhL20MTC/Captura-de-tela-de-2026-08-24-20-21-00.png" alt="Thiago Tenorio">
@@ -126,66 +161,103 @@
             <a href="#">Editorial</a>
             <a href="#">Contact</a>
             <div class="social-icons">
-                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target='about blank'><i class="fab fa-behance"></i></a>
-                <a href="https://www.instagram.com/thiago.tenorio_" target="about blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/thiten/" target="about blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </nav>
     </header>
 
-    <!-- ================== CORPO INTERNO (Estilo da Imagem) ================== -->
-    <main class="internal-body">
-        
-        <div class="page-title">
-            <h1>Guará Guaraná visita a cidade</h1>
-            <h2>Guara Guarana visits the city</h2>
-        </div>
-
-        <div class="image-stack">
+    <main>
+        <div class="gallery-grid">
             
-            <!-- Imagem 1 -->
-            <div class="stack-item">
-                <img src="https://i.postimg.cc/zXgzzrTg/guara.png" alt="Ilustração 1">
-                
+            <!-- Item 1 -->
+            <div class="gallery-item" onclick="window.location.href='https://thiten.github.io/portfolio/book1'">
+                <img src="https://i.postimg.cc/Vs4mLyWf/guaraguarana.png" alt="Guara guarana">
+                <div class="gallery-info">
+                    <h3>Guara guarana visits the city</h3>
+                    <p>Book project</p>
+                </div>
             </div>
 
-            <!-- Imagem 2 -->
-            <div class="stack-item">
-                <img src="https://i.postimg.cc/bNtyyh1k/image(3).png" alt="Ilustração 2">
-                 
+            <!-- Item 2 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/hvmLs8rp/saltandpeper.png" alt="Disney Brasil">
+                <div class="gallery-info">
+                    <h3>Disney Brasil</h3>
+                    <p>ILLUSTRATION - 2022</p>
+                </div>
             </div>
 
-            <!-- Imagem 3 -->
-            <div class="stack-item">
-                <img src="https://i.postimg.cc/jd7xxbyQ/image(8).png" alt="Ilustração 3">
-                 
+            <!-- Item 3 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/ZnN8HPHZ/acloudydream.png" alt="A cloudy dream">
+                <div class="gallery-info">
+                    <h3>A cloudy dream</h3>
+                    <p>Picture book study</p>
+                </div>
             </div>
 
-            <!-- Imagem 4 -->
-            <div class="stack-item">
-                <img src="https://i.postimg.cc/BQKSS02B/image(9).png" alt="Ilustração 4">
-                 
+            <!-- Item 4 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/fWSfMZNP/ogatoescritor.png" alt="O gato escritor">
+                <div class="gallery-info">
+                    <h3>O gato escritor</h3>
+                    <p>Published book - 2025</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/ZYvxJZS3/ograndepasseio.png" alt="O grande passeio">
+                <div class="gallery-info">
+                    <h3>O grande passeio</h3>
+                    <p>Published book - 2026</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/gjhVsyD3/littleshyelephant.jpg" alt="Little shy elephant">
+                <div class="gallery-info">
+                    <h3>Little shy elephant</h3>
+                    <p>Picture book study</p>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/1XFGB0H2/girafadegravata.png" alt="Girafa">
+                <div class="gallery-info">
+                    <h3>Giraffe's tie</h3>
+                    <p>Character design study</p>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/65sL3SWH/dumont.jpg" alt="Dumont">
+                <div class="gallery-info">
+                    <h3>Dumont</h3>
+                    <p>Picture book cover</p>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+                <img src="https://i.postimg.cc/4yc6PvPX/ourhugefriend.jpg" alt="Our huge friend">
+                <div class="gallery-info">
+                    <h3>Our huge friend</h3>
+                    <p>Picture book study</p>
+                </div>
             </div>
 
         </div>
     </main>
 
-    <script>
-        // Força todos os links a abrirem na mesma aba
-        document.addEventListener('click', function(event) {
-            var link = event.target.closest('a');
-            if (link && link.href.includes('sites.google.com')) {
-                event.preventDefault(); 
-                window.location.href = link.href; 
-            }
-        });
-    </script>
-     <footer>
-        <div align=center> <a href="#" class="back-to-top">↑ Back to top</a>
-       <p> thiten.illust@gmail.com</p>
-     <div> 
+    <footer>
+        thiten.illust@gmail.com
     </footer>
-  
+
 </body>
 </html>
-
