@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Tenorio - Portfólio</title>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- ✅ CSS EXTERNO (correto!) -->
     <link rel="stylesheet" href="styles.css">
+    
     <style>
- 
-
- 
-        
         /* Reset e Fonte */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
-        /* ================== SEU CABEÇALHO (Inalterado) ================== */
+        /* ================== CABEÇALHO ================== */
         header {
             display: flex;
             justify-content: space-between;
@@ -45,9 +48,9 @@
         .social-icons a { color: #C5F527; font-size: 1.2rem; }
         .social-icons a:hover { color: #7aa0b5; }
 
-        /* ================== NOVO CORPO DA PÁGINA INTERNA ================== */
+        /* ================== CORPO INTERNO ================== */
         .internal-body {
-            max-width: 900px; /* Largura máxima do conteúdo (semelhante à imagem) */
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -60,21 +63,21 @@
         .page-title h1 {
             font-size: 2rem;
             font-weight: 300;
-            color: #8faf5d; /* Tom de verde claro */
+            color: #8faf5d;
             margin-bottom: 5px;
         }
 
         .page-title h2 {
             font-size: 1.5rem;
             font-weight: 300;
-            color: #b8c7e0; /* Tom de azul claro */
+            color: #b8c7e0;
         }
 
         .image-stack {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px; /* Espaço entre as imagens verticais */
+            gap: 30px;
         }
 
         .stack-item {
@@ -82,19 +85,14 @@
             text-align: center;
         }
 
-        /* ==========================================================
-           CONTROLE DE TAMANHO DA IMAGEM:
-           Para alterar o tamanho, basta modificar a propriedade "width" 
-           abaixo (ex: 100%, 80%, 50%) ou adicionar "height" em px.
-           ========================================================== */
         .stack-item img {
-            width: 100%; /* Altere este valor para redimensionar a imagem */
-            max-width: 700px; /* Tamanho máximo opcional */
+            width: 100%;
+            max-width: 700px;
             height: auto;
             display: block;
             margin: 0 auto;
             border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave opcional */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .image-caption {
@@ -110,32 +108,31 @@
             nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
             .page-title h1 { font-size: 1.5rem; }
             .page-title h2 { font-size: 1.1rem; }
-            /* Em telas menores, a imagem nunca ultrapassará a largura da tela */
             .stack-item img { max-width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ================== SEU CABEÇALHO (Exatamente igual) ================== -->
+    <!-- ================== CABEÇALHO ================== -->
     <header>
         <div class="logo">
             <img src="https://i.postimg.cc/RhL20MTC/Captura-de-tela-de-2026-08-24-20-21-00.png" alt="Thiago Tenorio">
         </div>
         <nav>
-          <a href="https://thiten.github.io/portfolio/">Home</a>
+            <a href="https://thiten.github.io/portfolio/">Home</a>
             <a href="https://thiten.github.io/portfolio/books">Books</a>
             <a href="https://thiten.github.io/portfolio/editorial">Editorial</a>
             <a href="https://thiten.github.io/portfolio/contact">Contact</a>
             <div class="social-icons">
-                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target='about blank'><i class="fab fa-behance"></i></a>
-                <a href="https://www.instagram.com/thiago.tenorio_" target="about blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/thiten/" target="about blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target="_blank"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/thiago.tenorio_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/thiten/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </nav>
     </header>
 
-    <!-- ================== CORPO INTERNO (Estilo da Imagem) ================== -->
+    <!-- ================== CORPO INTERNO ================== -->
     <main class="internal-body">
         
         <div class="page-title">
@@ -148,25 +145,21 @@
             <!-- Imagem 1 -->
             <div class="stack-item">
                 <img src="https://i.postimg.cc/zXgzzrTg/guara.png" alt="Ilustração 1">
-                
             </div>
 
             <!-- Imagem 2 -->
             <div class="stack-item">
                 <img src="https://i.postimg.cc/bNtyyh1k/image(3).png" alt="Ilustração 2">
-                 
             </div>
 
             <!-- Imagem 3 -->
             <div class="stack-item">
                 <img src="https://i.postimg.cc/jd7xxbyQ/image(8).png" alt="Ilustração 3">
-                 
             </div>
 
             <!-- Imagem 4 -->
             <div class="stack-item">
                 <img src="https://i.postimg.cc/BQKSS02B/image(9).png" alt="Ilustração 4">
-                 
             </div>
 
         </div>
@@ -182,10 +175,12 @@
             }
         });
     </script>
-     <footer>
-        <div align=center> <a href="#" class="back-to-top">↑ Back to top</a>
-       <p> thiten.illust@gmail.com</p>
-     <div> 
+    
+    <footer>
+        <div align="center">
+            <a href="#" class="back-to-top">↑ Back to top</a>
+            <p>thiten.illust@gmail.com</p>
+        </div>
     </footer>
   
 </body>
