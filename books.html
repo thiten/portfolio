@@ -88,22 +88,17 @@
 
         .gallery-item:hover::before { opacity: 1; }
 
-        /* LINK CLICÁVEL */
+        /* LINK CLICÁVEL - Solução mais robusta */
         .gallery-link {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            z-index: 5; /* Acima de tudo */
+            z-index: 5;
             cursor: pointer;
             display: block;
             text-decoration: none;
-            background: transparent;
-        }
-
-        .gallery-link:hover {
-            background: transparent;
         }
 
         /* Informações */
@@ -155,15 +150,15 @@
         <div class="logo">
             <img src="https://i.postimg.cc/RhL20MTC/Captura-de-tela-de-2026-08-24-20-21-00.png" alt="Thiago Tenorio">
         </div>
-       <nav>
+        <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
             <a href="https://thiten.github.io/portfolio/books">Books</a>
             <a href="https://thiten.github.io/portfolio/editorial">Editorial</a>
             <a href="https://thiten.github.io/portfolio/contact">Contact</a>
-           <div class="social-icons">
-                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target='about blank'><i class="fab fa-behance"></i></a>
-                <a href="https://www.instagram.com/thiago.tenorio_" target="about blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/thiten/" target="about blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <div class="social-icons">
+                <a href="https://www.behance.net/thiago-tenrio" target="_blank" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/thiago.tenorio_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/thiten/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </nav>
     </header>
@@ -172,84 +167,93 @@
         <div class="gallery-grid">
             
             <!-- Item 1 -->
-            <div class="gallery-item" onclick="window.location.href='https://thiten.github.io/portfolio/book1'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/Vs4mLyWf/guaraguarana.png" alt="Guara guarana">
                 <div class="gallery-info">
                     <h3>Guara guarana visits the city</h3>
                     <p>Book project</p>
                 </div>
+                <a href="https://thiten.github.io/portfolio/book1" class="gallery-link"></a>
             </div>
 
             <!-- Item 2 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/JnpTBQn1/salt-pepper.jpg" alt="Salt and Pepper">
                 <div class="gallery-info">
                     <h3>Salt and Pepper</h3>
                     <p>Salt and pepper</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 3 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/ZnN8HPHZ/acloudydream.png" alt="A cloudy dream">
                 <div class="gallery-info">
                     <h3>A cloudy dream</h3>
                     <p>Picture book study</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 4 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/fWSfMZNP/ogatoescritor.png" alt="O gato escritor">
                 <div class="gallery-info">
                     <h3>O gato escritor</h3>
                     <p>Published book - 2025</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 5 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/ZYvxJZS3/ograndepasseio.png" alt="O grande passeio">
                 <div class="gallery-info">
                     <h3>O grande passeio</h3>
                     <p>Published book - 2026</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 6 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/3RtLDZRr/littleshyelephant.jpg" alt="Little shy elephant">
                 <div class="gallery-info">
                     <h3>Little shy elephant</h3>
                     <p>Picture book study</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 7 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/ZRwfyLRJ/girafe.jpg" alt="Girafa">
                 <div class="gallery-info">
                     <h3>Giraffe's tie</h3>
                     <p>Character design study</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 8 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/65sL3SWH/dumont.jpg" alt="Dumont">
                 <div class="gallery-info">
                     <h3>Dumont</h3>
                     <p>Picture book cover</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
             <!-- Item 9 -->
-            <div class="gallery-item" onclick="window.location.href='https://sites.google.com/view/thiten/books?authuser=2'">
+            <div class="gallery-item">
                 <img src="https://i.postimg.cc/0QVtJCQP/ourhugefriend.jpg" alt="Our huge friend">
                 <div class="gallery-info">
                     <h3>Our huge friend</h3>
                     <p>Picture book study</p>
                 </div>
+                <a href="https://sites.google.com/view/thiten/books?authuser=2" class="gallery-link"></a>
             </div>
 
         </div>
