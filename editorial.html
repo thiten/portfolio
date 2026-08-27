@@ -4,28 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Tenorio - Portfólio</title>
-    <!-- Fonte do seu header -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Ícones das redes sociais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <style>
-         <link rel="stylesheet" href="styles.css">
-        /* Reset e Fonte */
-        *
-.social-icons a {
-    color: #C5F527 !important; /* O !important garante que a cor verde não seja sobrescrita */
-   font-size: 1.2rem;   
-}
+   <link rel="stylesheet" href="styles.css">
         
-    
-     
-      { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
-        /* ================== SEU CABEÇALHO ================== */
-        /* Cabeçalho - Padrão para DESKTOP (barra horizontal) */
- header {
+        header {
     display: flex;
     justify-content: space-between; /* Logo na esquerda, menu na direita */
     align-items: flex-start;
@@ -37,10 +26,6 @@ header img {
     height: auto;
 }
 
-/* Cor específica para os ícones sociais (verde claro) */
-.social-icons a {
-    color: #C5F527 !important; /* O !important garante que a cor verde não seja sobrescrita */
-}
 
       .social-icons a {
     color: #C5F527 !important; /* Mantém a cor verde */
@@ -94,12 +79,11 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
         max-width: 100vw;   
     }
 }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: 320px;
-            grid-auto-flow: row dense; /* Preenche buracos à esquerda */
+            grid-auto-flow: row dense;
             gap: 0px;
             width: 100%;
         }
@@ -107,7 +91,7 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 0; /* Sem bordas arredondadas */
+            border-radius: 0;
             cursor: pointer;
         }
 
@@ -121,7 +105,6 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
 
         .gallery-item:hover img { transform: scale(1.05); }
 
-        /* Filtro colorido (Fade Out/In) */
         .gallery-item::before {
             content: '';
             position: absolute;
@@ -130,11 +113,25 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 1;
+            pointer-events: none;
         }
 
         .gallery-item:hover::before { opacity: 1; }
 
-        /* Informações de cada imagem */
+        /* LINK CLICÁVEL - Solução mais robusta */
+        .gallery-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        /* Informações */
         .gallery-info {
             position: absolute;
             top: 50%; left: 50%;
@@ -145,7 +142,7 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
             transition: opacity 0.4s ease;
             z-index: 2;
             width: 90%;
-            pointer-events: none; /* Permite clicar através do texto */
+            pointer-events: none;
         }
 
         .gallery-item:hover .gallery-info { opacity: 1; }
@@ -153,7 +150,6 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
         .gallery-info h3 { font-size: 1.3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 5px; }
         .gallery-info p { font-size: 0.9rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
 
-        /* ================== SEU RODAPÉ ================== */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -163,27 +159,23 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
             width: 100%;
         }
 
-        /* Responsividade */
         @media (max-width: 900px) {
-            header { flex-dire<home><a href="https://sites.google.com/view/thiten/home">Books</a></home>}
+            header { flex-direction: column; align-items: center; }
             nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
             main { padding: 20px; }
             .gallery-grid { grid-auto-rows: 250px; }
+        }
 
-          /* Responsividade - Tablet e Celular */
-@media (max-width: 900px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* 1 imagem por linha */
-        grid-auto-rows: auto; /* A altura se ajusta ao tamanho da imagem (evita distorção) */
-    }
-}
-          
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ================== SEU CABEÇALHO ================== -->
     <header>
         <div class="logo">
             <img src="https://i.postimg.cc/RhL20MTC/Captura-de-tela-de-2026-08-24-20-21-00.png" alt="Thiago Tenorio">
@@ -193,133 +185,116 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
             <a href="https://thiten.github.io/portfolio/books">Books</a>
             <a href="https://thiten.github.io/portfolio/editorial">Editorial</a>
             <a href="https://thiten.github.io/portfolio/contact">Contact</a>
-          <div class="social-icons">
-                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target='about blank'><i class="fab fa-behance"></i></a>
-                <a href="https://www.instagram.com/thiago.tenorio_" target="about blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/thiten/" target="about blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <div class="social-icons">
+                <a href="https://www.behance.net/thiago-tenrio" target="_blank" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/thiago.tenorio_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/thiten/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </nav>
     </header>
 
-    <!-- ================== GALERIA ================== -->
-
-
-   
-
-    
     <main>
         <div class="gallery-grid">
             
             <!-- Item 1 -->
-
-             
             <div class="gallery-item">
-              <img src="imagens/edit1.png" alt="capitaes da areia">
+                <img src="editorial/edit1.png" alt="capitaes da areia">
                 <div class="gallery-info">
-                    <h3>Capitães da areia</h3>
+                    <h3>Captains of the Sands</h3>
                     <p>Cover book project</p>
-                 </div>
+                </div>
                 <a href="https://thiten.github.io/portfolio/editorial1" class="gallery-link"></a>
             </div>
-            
-           
 
             <!-- Item 2 -->
             <div class="gallery-item">
-                   <img src="imagens/edit2.png" alt="Historic figures">
+                   <img src="editorial/edit2.png" alt="figuras históricas">
                 <div class="gallery-info">
                     <h3>Historic figures</h3>
-                    <p>Textbook illustration</p>
+                    <p>text book illustrations</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial2 class="gallery-link"></a>
+                    <a href="https://thiten.github.io/portfolio/editorial2" class="gallery-link"></a>
             </div>
+
+            <!-- Item 3 -->
+  <div class="gallery-item">
+                <img src="editorial/edit3.png" alt="citrus">
+                <div class="gallery-info">
+                    <h3>Citrus</h3>
+                    <p>Product illustration</p>
+                </div>
+                  <a href="https://thiten.github.io/portfolio/editorial3" class="gallery-link"></a>
+            </div>
+
+
 
             
             <div class="gallery-item">
-                 <img src="imagens/edit3.png" alt="citrus">
-                <div class="gallery-info">
-                    <h3>Citrus</h3>
-                    <p>Ad ilustration</p>
-                </div>
-                <a href="https://thiten.github.io/portfolio/editorial3 class="gallery-link"></a>
-            </div>
-
-            <!-- Item 4: Street parties -->
-            <div class="gallery-item">
-                      <img src="imagens/edit4.png" alt="Classical music festival">
+                <img src="editorial/edit4.png" alt="Classical music festival">
                 <div class="gallery-info">
                     <h3>Classical music festival</h3>
                     <p>Poster illustration</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial4 class="gallery-link"></a>
+                  <a href="https://thiten.github.io/portfolio/editorial4" class="gallery-link"></a>
             </div>
 
-            <!-- Item 5: Christmas -->
+            <!-- Item 4 -->
             <div class="gallery-item">
-                 <img src="imagens/edit5.png" alt="The lighthouse">
+             <img src="editorial/edit5.png" alt="the lighthouse">
                 <div class="gallery-info">
                     <h3>The lighthouse</h3>
                     <p>Poster illustration</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial5 class="gallery-link"></a>
+                     <a href="https://thiten.github.io/portfolio/editorial5" class="gallery-link"></a>
             </div>
 
-            <!-- Item 6-->
+            <!-- Item 5 -->
             <div class="gallery-item">
-               <img src="imagens/edit6.png" alt="In Utero<">
+               <img src="editorial/edit6.png" alt="In utero tribute">
                 <div class="gallery-info">
-                    <h3>In Utero</h3>
+                    <h3>In utero tribute</h3>
                     <p>Poster illustration</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial6 class="gallery-link"></a>
+                   <a href="https://thiten.github.io/portfolio/editorial6" class="gallery-link"></a>
             </div>
 
-            <!-- Item 7: PANCs -->
+            <!-- Item 6 -->
             <div class="gallery-item">
-              <img src="imagens/edit7.png" alt="Lighthouses">
+                     <img src="editorial/edit7.png" alt="I">
                 <div class="gallery-info">
-                    <h3>Lighthouses</h3>
-                    <p>Urban sketching</p>
+                    <h3>lighthouses</h3>
+                    <p>Urban sketches</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial7 class="gallery-link"></a>
+                  <a href="https://thiten.github.io/portfolio/editorial7" class="gallery-link"></a>
             </div>
 
-            <!-- Item 8 -->
+            <!-- Item 7 -->
             <div class="gallery-item">
-                <img src="imagens/edit8.png" alt="The goodfather">
+                 <img src="imagens/book8.jpg" alt="the goodfather">
                 <div class="gallery-info">
                     <h3>The goodfather</h3>
                     <p>Cover book illustration</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial8 class="gallery-link"></a>
+                     <a href="https://thiten.github.io/portfolio/editorial8" class="gallery-link"></a>
             </div>
 
-          <div class="gallery-item">
-                <img src="imagens/edit9.png" alt="The innie game">
+            <!-- Item 8 -->
+            <div class="gallery-item">
+                 <img src="imagens/book9.jpg" alt="Dumont">
                 <div class="gallery-info">
-                    <h3>The innie game</h3>
-                    <p>Board game illustration</p>
+                    <h3>The innie's game</h3>
+                    <p>Boardgame illustration</p>
                 </div>
-                <a href="https://thiten.github.io/portfolio/editorial9 class="gallery-link"></a>
+                    <a href="https://thiten.github.io/portfolio/editorial9" class="gallery-link"></a>
+            </div>
 
+         
         </div>
     </main>
 
-    <!-- ================== SEU RODAPÉ ================== -->
     <footer>
         thiten.illust@gmail.com
     </footer>
 
-<script>
-    // Força todos os links a abrirem na mesma aba
-    document.addEventListener('click', function(event) {
-        var link = event.target.closest('a');
-        if (link && link.href.includes('sites.google.com')) {
-            event.preventDefault(); // Impede o comportamento padrão do navegador
-            window.location.href = link.href; // Navega na mesma aba
-        }
-    });
-</script>
-  
 </body>
 </html>
