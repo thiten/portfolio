@@ -186,20 +186,33 @@
         .back-to-top { display: block; color: #888; text-decoration: none; margin-bottom: 10px; }
 
         /* Responsividade */
-        @media (max-width: 1000px) {
-            .page-container {
-                grid-template-columns: 1fr;
-                gap: 40px; /* Espaço menor no mobile */
-                padding: 20px;
-                text-align: center;
-            }
+      @media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        gap: 15px;
+    }
 
-            header {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                padding: 20px;
-            }
+    header img {
+        width: 120px;
+    }
+
+    nav {
+        gap: 15px;
+        font-size: 0.7rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .page-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px;
+        text-align: center;
+    }
+}
 
             nav {
                 flex-wrap: wrap;
@@ -227,7 +240,7 @@
 
     <header>
         <div class="logo">
-              <img src="imagens/thiten.png" style="width: 20%; height: auto; margin-top: -5px">
+              <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
         </div>
         <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
