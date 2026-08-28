@@ -2,57 +2,45 @@
 <html lang="pt-BR">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2HBV8J3ZS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-R2HBV8J3ZS');    
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2HBV8J3ZS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-R2HBV8J3ZS');    
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Tenorio - Portfólio</title>
-    <!-- Fonte do header -->
+    
+    <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Fonte Máquina de Escrever -->
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- CSS Compartilhado -->
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 30px 60px;
-        }
-
-        header img { width: 150px; height: auto; }
-
-        .social-icons a {
-            color: #C5F527 !important;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
+        /* ===== ESTILOS ESPECÍFICOS DA PÁGINA ===== */
         
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 10px;
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #fff; 
+            color: #333; 
+            overflow-x: hidden;
         }
 
-        nav a { text-decoration: none; color: #333; transition: color 0.3s; }
-        nav a:hover { color:#c7f14f; }
-            
+        /* Logo - ajuste específico */
+        .logo img {
+            width: 150px;
+            height: auto;
+            margin-top: -5px;
+        }
+
         /* ================== CORPO (COLUNAS BEM AFASTADAS) ================== */
         .page-container {
             max-width: 1400px;
@@ -60,7 +48,7 @@
             padding: 20px 60px;
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            gap: 120px; /* ESPAÇO BEM GRANDE ENTRE AS COLUNAS */
+            gap: 120px;
             align-items: start; 
         }
 
@@ -74,11 +62,11 @@
         /* ================== BALÃO GRANDE ================== */
         .newsletter-balao {
             background-color: #c1e35b; 
-            padding: 30px; /* Aumentei o padding interno */
+            padding: 30px;
             border-radius: 15px;
             position: relative;
             width: 100%;
-            max-width: 600px; /* Deixei bem maior */
+            max-width: 600px;
             margin-top: -10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: left; 
@@ -98,12 +86,12 @@
         .newsletter-conteudo {
             background-color: #ecf9c7;
             border-radius: 10px;
-            padding: 25px; /* Aumentei o respiro interno */
-            height: 450px; /* Área de rolagem bem maior */
+            padding: 25px;
+            height: 450px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Mais espaço entre as caixas */
+            gap: 20px;
         }
 
         .newsletter-conteudo::-webkit-scrollbar { width: 8px; }
@@ -113,7 +101,7 @@
         .mensagem {
             background-color: #ffffff;
             border-radius: 8px;
-            padding: 25px; /* Caixas de mensagens maiores */
+            padding: 25px;
             color: #555;
             font-family: 'Special Elite', cursive; 
             font-size: 1rem;
@@ -122,16 +110,20 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .mensagem h4 { margin: 0 0 10px 0; color: #333; font-size: 1.2rem; }
+        .mensagem h4 { 
+            margin: 0 0 10px 0; 
+            color: #333; 
+            font-size: 1.2rem; 
+        }
 
         /* ================== FOTO DENTRO DA MENSAGEM ================== */
         .foto-mensagem {
             display: block;
             max-width: 100%;
-            width: 250px; /* Tamanho da foto */
+            width: 250px;
             height: auto;
             border-radius: 8px;
-            margin: 10px 0 15px 0; /* Margem para não colar no texto */
+            margin: 10px 0 15px 0;
             object-fit: cover;
         }
 
@@ -142,10 +134,7 @@
             width: 100%;
             margin-top: 25px;
             border-radius: 10px;
-            box-shadow: 0 0px 0px rgba(0,0,0,0);
         }
-
-        .illustration { display: none; }
 
         .text-column h2 {
             font-size: 2rem;
@@ -174,6 +163,48 @@
         .clients-list, .books-list { font-size: 0.9rem; line-height: 1.8; color: #444; }
         .books-list strong { color: #333; }
 
+        /* ===== OVERRIDE DO CSS COMPARTILHADO ===== */
+        
+        /* Ajuste do header para seguir o styles.css */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 30px 60px;
+            width: 100%;
+        }
+
+        .social-icons a {
+            color: #C5F527 !important;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #7aa0b5;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            color: #333; 
+            transition: color 0.3s; 
+        }
+
+        nav a:hover { 
+            color: #ebf76a; 
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -183,13 +214,22 @@
             width: 100%;
         }
 
-        .back-to-top { display: block; color: #888; text-decoration: none; margin-bottom: 10px; }
+        .back-to-top { 
+            display: block; 
+            color: #888; 
+            text-decoration: none; 
+            margin-bottom: 10px; 
+        }
+
+        .back-to-top:hover {
+            color: #ebf76a;
+        }
 
         /* Responsividade */
         @media (max-width: 1000px) {
             .page-container {
                 grid-template-columns: 1fr;
-                gap: 40px; /* Espaço menor no mobile */
+                gap: 40px;
                 padding: 20px;
                 text-align: center;
             }
@@ -197,15 +237,28 @@
             header {
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
+                justify-content: center;
                 padding: 20px;
+                gap: 15px;
+            }
+
+            .logo img {
+                width: 150px;
+                margin-top: 0;
             }
 
             nav {
-                flex-wrap: wrap;
-                justify-content: center;
                 gap: 15px;
+                font-size: 0.7rem;
+                justify-content: center;
+                flex-wrap: wrap;
                 margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .social-icons {
+                margin-left: 0;
+                margin-top: 10px;
             }
 
             .visual-column { 
@@ -221,13 +274,24 @@
             }
             .imagem-abaixo { margin: 25px auto 40px auto; }
         }
+
+        @media (max-width: 600px) {
+            .page-container {
+                padding: 15px;
+            }
+            
+            .newsletter-conteudo {
+                height: 350px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- ===== HEADER (SEGUINDO CSS COMPARTILHADO) ===== -->
     <header>
         <div class="logo">
-              <img src="imagens/thiten.png" style="width: 40%; height: auto; margin-top: -5px">
+            <img src="imagens/thiten.png" alt="Thiago Tenorio">
         </div>
         <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
@@ -235,13 +299,14 @@
             <a href="https://thiten.github.io/portfolio/editorial">Editorial</a>
             <a href="https://thiten.github.io/portfolio/contact">Contact</a>
             <div class="social-icons">
-                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target='_blank'><i class="fab fa-behance"></i></a>
+                <a href="https://www.behance.net/thiago-tenrio" aria-label="Behance" target="_blank"><i class="fab fa-behance"></i></a>
                 <a href="https://www.instagram.com/thiago.tenorio_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/thiten/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </nav>
     </header>
 
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
     <main class="page-container">
         
         <!-- Coluna Esquerda (Balão + Imagem) -->
@@ -249,22 +314,23 @@
             
             <div class="newsletter-balao">
                 <div class="newsletter-conteudo">
-
-<h2><p style="text-align: center;">Newsnote </p></h2>
+                    <h2 style="text-align: center;">Newsnote</h2>
                                  
                     <!-- MENSAGEM NOVA -->
                     <div class="mensagem">
                         <h4>28_ago_2026-----12:58 AM 📌</h4>
-                        <p> <h4>My new website is live!🎉🎉🎉</h4> After some time remodeling it, it's finally online! 
+                        <p><h4>My new website is live!🎉🎉🎉</h4> After some time remodeling it, it's finally online! 
                             I'll update here all about my work, incoming books and projects.
-                            I'll also talk here about the things I've been reading and whatever I judge intresting..</p>
+                            I'll also talk here about the things I've been reading and whatever I judge interesting..</p>
                     </div>
 
                     <!-- MENSAGEM ANTIGA (COM FOTO) -->
                     <div class="mensagem">
                         <h4>28_ago_2026-----13:07 PM </h4>
-                        <p> <h4>Launch of my next illustrated book</h4>  <img src="imagens/book5.png" alt="Descrição da foto" class="foto-mensagem" width=280px>The launch of the next book I had the pleasure to illustrate will be at the 28th 
-                            São Paulo Biennial, which will take place from September 4th to 13th. Stay tuned!! </p>
+                        <p><h4>Launch of my next illustrated book</h4>
+                            <img src="imagens/book5.png" alt="Descrição da foto" class="foto-mensagem" width="280px">
+                            The launch of the next book I had the pleasure to illustrate will be at the 28th 
+                            São Paulo Biennial, which will take place from September 4th to 13th. Stay tuned!!</p>
                     </div>
 
                 </div>
@@ -280,7 +346,7 @@
             
             <h2>Contact</h2>
 
-            <p> Do you have any project that demands illustrations such as mine?<br>
+            <p>Do you have any project that demands illustrations such as mine?<br>
                 Keep in touch and let's talk about it: <a href="mailto:thiten.illust@gmail.com" class="highlight-email">thiten.illust@gmail.com</a>
             </p>
           
@@ -291,11 +357,11 @@
 
             <h2>About me</h2>
             
-            <p> Originally from Maceió, Alagoas, Thiago Tenorio is an illustrator trained at Quanta Academia de Artes. 
+            <p>Originally from Maceió, Alagoas, Thiago Tenorio is an illustrator trained at Quanta Academia de Artes. 
                 He has been working in the publishing market for three years, developing children's and educational 
                 book projects for companies such as IMEPH, Scriba, Saraiva, Saber, Somos, Asinha, among others. 
                 Greater than the responsibility of illustrating a children's book is the joy and pleasure of 
-                contributing to the education of new generations. Art educates. </p>
+                contributing to the education of new generations. Art educates.</p>
             <p class="secondary-text">
                 Natural de Maceió, Alagoas, Thiago Tenorio é ilustrador formado pela Quanta Academia de Artes. 
                 Atua no mercado editorial há três anos, desenvolvendo projetos de livros infantis e didáticos para 
@@ -321,6 +387,7 @@
         </div>
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div align="center">
             <a href="#" class="back-to-top">↑ Back to top</a>
