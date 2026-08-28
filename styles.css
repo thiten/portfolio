@@ -318,3 +318,204 @@ footer {
     }
     
 }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 30px 60px;
+        }
+
+        header img { width: 150px; height: auto; }
+
+        .social-icons a {
+            color: #C5F527 !important;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        nav a { text-decoration: none; color: #333; transition: color 0.3s; }
+        nav a:hover { color:#c7f14f; }
+            
+        /* ================== CORPO (COLUNAS BEM AFASTADAS) ================== */
+        .page-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 120px; /* ESPAÇO BEM GRANDE ENTRE AS COLUNAS */
+            align-items: start; 
+        }
+
+        .visual-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        /* ================== BALÃO GRANDE ================== */
+        .newsletter-balao {
+            background-color: #c1e35b; 
+            padding: 30px; /* Aumentei o padding interno */
+            border-radius: 15px;
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Deixei bem maior */
+            margin-top: -10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: left; 
+        }
+
+        /* Rabicho */
+        .newsletter-balao::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 40px;
+            border-width: 20px 15px 0 15px;
+            border-style: solid;
+            border-color: #c1e35b transparent transparent transparent;
+        }
+
+        .newsletter-conteudo {
+            background-color: #ecf9c7;
+            border-radius: 10px;
+            padding: 25px; /* Aumentei o respiro interno */
+            height: 450px; /* Área de rolagem bem maior */
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Mais espaço entre as caixas */
+        }
+
+        .newsletter-conteudo::-webkit-scrollbar { width: 8px; }
+        .newsletter-conteudo::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 10px; }
+        .newsletter-conteudo::-webkit-scrollbar-thumb { background: #a3c14a; border-radius: 10px; }
+
+        .mensagem {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px; /* Caixas de mensagens maiores */
+            color: #555;
+            font-family: 'Special Elite', cursive; 
+            font-size: 1rem;
+            line-height: 1.6;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .mensagem h4 { margin: 0 0 10px 0; color: #333; font-size: 1.2rem; }
+
+        /* ================== FOTO DENTRO DA MENSAGEM ================== */
+        .foto-mensagem {
+            display: block;
+            max-width: 100%;
+            width: 250px; /* Tamanho da foto */
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0 15px 0; /* Margem para não colar no texto */
+            object-fit: cover;
+        }
+
+        /* Imagem abaixo do balão */
+        .imagem-abaixo {
+            display: block;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0px 0px rgba(0,0,0,0);
+        }
+
+        .illustration { display: none; }
+
+        .text-column h2 {
+            font-size: 2rem;
+            color: #7aa0b5;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .text-column h2:first-child { margin-top: 0; }
+
+        .text-column p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .text-column .highlight-email {
+            font-weight: 600;
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .text-column .secondary-text { color: #ccc; margin-bottom: 5px; }
+        .clients-list, .books-list { font-size: 0.9rem; line-height: 1.8; color: #444; }
+        .books-list strong { color: #333; }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            width: 100%;
+        }
+
+        .back-to-top { display: block; color: #888; text-decoration: none; margin-bottom: 10px; }
+
+        /* Responsividade */
+        @media (max-width: 1000px) {
+            .page-container {
+                grid-template-columns: 1fr;
+                gap: 40px; /* Espaço menor no mobile */
+                padding: 20px;
+                text-align: center;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-left: 0;
+            }
+
+            .visual-column { 
+                order: -1; 
+                align-items: center;
+            }
+
+            .text-column h2 { margin-top: 30px; }
+            
+            .newsletter-balao {
+                margin: 20px auto 40px auto;
+                text-align: left;
+            }
+            .imagem-abaixo { margin: 25px auto 40px auto; }
+        }
