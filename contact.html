@@ -24,21 +24,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
-        /* ================== HEADER - IGUAL AO DA PÁGINA EDITORIAL ================== */
         header {
             display: flex;
-            justify-content: space-between; /* Logo na esquerda, menu na direita */
+            justify-content: space-between;
             align-items: flex-start;
             padding: 30px 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
         }
 
-        header img { 
-            width: 150px; 
-            height: auto; 
-        }
+        header img { width: 150px; height: auto; }
 
         .social-icons a {
             color: #C5F527 !important;
@@ -69,7 +62,6 @@
             grid-template-columns: 1fr 1.5fr;
             gap: 120px; /* ESPAÇO BEM GRANDE ENTRE AS COLUNAS */
             align-items: start; 
-            width: 100%;
         }
 
         .visual-column {
@@ -193,32 +185,27 @@
 
         .back-to-top { display: block; color: #888; text-decoration: none; margin-bottom: 10px; }
 
-        /* ================== RESPONSIVIDADE - IGUAL AO DA EDITORIAL ================== */
-        @media (max-width: 900px) {
+        /* Responsividade */
+        @media (max-width: 1000px) {
+            .page-container {
+                grid-template-columns: 1fr;
+                gap: 40px; /* Espaço menor no mobile */
+                padding: 20px;
+                text-align: center;
+            }
+
             header {
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                gap: 20px;
                 padding: 20px;
-                gap: 15px;
-            }
-
-            header img {
-                width: 120px;
             }
 
             nav {
-                gap: 15px;
-                font-size: 0.7rem;
-                justify-content: center;
                 flex-wrap: wrap;
-            }
-
-            .page-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding: 20px;
-                text-align: center;
+                justify-content: center;
+                gap: 15px;
+                margin-left: 0;
             }
 
             .visual-column { 
