@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -120,7 +120,7 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(197, 245, 39, 0.85));
+            background: #C5F527;
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 1;
@@ -148,7 +148,7 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            color: #fff;
+            color: #333;
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 2;
@@ -158,9 +158,13 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
 
         .gallery-item:hover .gallery-info { opacity: 1; }
 
-        .gallery-info h3 { font-size: 1.3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 5px; }
-        .gallery-info p { font-size: 0.9rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
-
+       /* Ajuste do texto para melhor legibilidade */
+        .gallery-info h3 { 
+            font-size: 1.3rem; 
+            color: #1a1a1a; /* Preto mais escuro */
+            margin-bottom: 5px; 
+        }
+ 
         footer {
             text-align: center;
             padding: 40px 20px;
