@@ -18,3 +18,15 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in-scroll').forEach(element => {
     observer.observe(element);
 });
+
+// Adicione este código no script.js
+document.addEventListener('click', function(e) {
+    const link = e.target.closest('a');
+    if (link && link.href && !link.target && !link.href.startsWith('#')) {
+        e.preventDefault();
+        document.body.classList.remove('fade-in-active');
+        setTimeout(() => {
+            window.location.href = link.href;
+        }, 500);
+    }
+});
