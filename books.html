@@ -198,6 +198,36 @@ nav a { text-decoration: none; color: #333; transition: color 0.3s; }
                 grid-template-columns: 1fr;
                 grid-auto-rows: auto;
             }
+/* Transição suave de página */
+.site-container {
+  animation: pageTransition 0.9s ease-in-out;
+}
+
+@keyframes pageTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Para o conteúdo principal */
+#page {
+  animation: contentFadeIn 0.9s ease-in-out;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+            
         }
     </style>
 </head>
