@@ -1,89 +1,95 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2HBV8J3ZS"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-R2HBV8J3ZS');
-    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2HBV8J3ZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R2HBV8J3ZS');
+    
+</script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Tenorio - Portfólio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    
+
     <style>
+   <link rel="stylesheet" href="styles.css">
+        
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 30px 60px;
-        }
+    display: flex;
+    justify-content: space-between; /* Logo na esquerda, menu na direita */
+    align-items: flex-start;
+    padding: 30px 60px;
+}
 
-        header img {
-            width: 150px;
-            height: auto;
-        }
+header img {
+    width: 150px;
+    height: auto;
+}
 
-        .social-icons a {
-            color: #C5F527 !important;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
+
+      .social-icons a {
+    color: #C5F527 !important; /* Mantém a cor verde */
+    font-size: 1.2rem;         /* Aumenta o tamanho dos ícones (ex: 1.8rem é bem maior) */
+    transition: color 0.3s;    /* Mantém a transição suave */
+}
+      
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+nav a { text-decoration: none; color: #333; transition: color 0.3s; }
+   nav a:hover { color:#c7f14f; }
         
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 10px;
-        }
+/* Responsividade para Celulares e Tablets */
+@media (max-width: 900px) {
+    /* Cabeçalho - Centralizado APENAS no mobile/tablet */
+    header {
+        flex-direction: column; 
+        align-items: center;    
+        justify-content: center;
+        padding: 20px;
+        gap: 15px;
+    }
 
-        nav a { text-decoration: none; color: #333; transition: color 0.3s; }
-        nav a:hover { color:#c7f14f; }
-        
-        /* Responsividade para Celulares e Tablets */
-        @media (max-width: 900px) {
-            header {
-                flex-direction: column; 
-                align-items: center;    
-                justify-content: center;
-                padding: 20px;
-                gap: 15px;
-            }
+    header img {
+        width: 120px; 
+    }
 
-            header img {
-                width: 120px; 
-            }
+    nav {
+        gap: 15px;
+        font-size: 0.7rem;
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
 
-            nav {
-                gap: 15px;
-                font-size: 0.7rem;
-                justify-content: center;
-                flex-wrap: wrap; 
-            }
+    main {
+        padding: 10px;
+    }
 
-            main {
-                padding: 10px;
-            }
-
-            main img {
-                width: 100vw;       
-                max-width: 100vw;   
-            }
-        }
-
+    /* Aumenta a imagem principal em telas menores */
+    main img {
+        width: 100vw;       
+        max-width: 100vw;   
+    }
+}
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -123,6 +129,7 @@
 
         .gallery-item:hover::before { opacity: 1; }
 
+        /* LINK CLICÁVEL - Solução mais robusta */
         .gallery-link {
             position: absolute;
             top: 0;
@@ -135,6 +142,7 @@
             text-decoration: none;
         }
 
+        /* Informações */
         .gallery-info {
             position: absolute;
             top: 50%; left: 50%;
@@ -150,12 +158,13 @@
 
         .gallery-item:hover .gallery-info { opacity: 1; }
 
+       /* Ajuste do texto para melhor legibilidade */
         .gallery-info h3 { 
             font-size: 1.3rem; 
-            color: #1a1a1a;
+            color: #1a1a1a; /* Preto mais escuro */
             margin-bottom: 5px; 
         }
-
+ 
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -184,7 +193,7 @@
 
     <header>
         <div class="logo">
-            <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
+          <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
         </div>
         <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
@@ -197,6 +206,7 @@
                 <a href="https://www.linkedin.com/in/thiten/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </nav>
+   
     </header>
 
     <main>
