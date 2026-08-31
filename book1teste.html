@@ -136,14 +136,17 @@
             display: flex;
         }
 
-        /* Modo 1: Ajustado à tela (padrão) */
+  /* Modo 1: Ajustado à tela (padrão) - SEMPRE MAIOR QUE A GALERIA */
         .lightbox-overlay.fit-screen .lightbox-image {
-            max-width: 90vw;
-            max-height: 85vh;
+            min-width: 80vw;        /* Mínimo de 80% da largura da tela */
+            min-height: 60vh;       /* Mínimo de 60% da altura da tela */
+            max-width: 95vw;        /* Máximo de 95% da largura */
+            max-height: 90vh;       /* Máximo de 90% da altura */
             width: auto;
             height: auto;
             cursor: zoom-in;
         }
+
 
     /* Modo 2: Tamanho real (com scroll) */
 .lightbox-overlay.full-size {
