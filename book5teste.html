@@ -11,7 +11,54 @@
   gtag('config', 'G-R2HBV8J3ZS');
 
  
-<script src="https://raw.githubusercontent.com/thiten/portfolio/main/lightbox.js" defer></script>    
+<script src="https://raw.githubusercontent.com/thiten/portfolio/main/lightbox.js" defer></script>  
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Cria o overlay dinamicamente
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<span class="lightbox-close">&times;</span><img src="" alt="Imagem ampliada">';
+  document.body.appendChild(overlay);
+
+  const overlayImg = overlay.querySelector('img');
+  const closeBtn = overlay.querySelector('.lightbox-close');
+
+  // Adiciona classe zoomable a todas as imagens
+  document.querySelectorAll('img').forEach(img => {
+    if (img.width > 300 || img.naturalWidth > 300) {
+      img.classList.add('zoomable');
+    }
+  });
+
+  // Click para abrir
+  document.addEventListener('click', function(e) {
+    const target = e.target;
+    if (target.classList.contains('zoomable')) {
+      e.preventDefault();
+      overlayImg.src = target.src;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  // Fechar
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay || e.target === closeBtn) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Fechar com ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+</script>
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
