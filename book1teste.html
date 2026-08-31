@@ -111,6 +111,97 @@
             font-style: italic;
         }
 
+       /* ================== LIGHTBOX CSS ================== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 4px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 1;
+            transition: transform 0.2s;
+            z-index: 2002;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+            color: #C5F527;
+        }
+
+        /* Navegação */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: all 0.2s;
+            z-index: 2002;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            color: #C5F527;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+
+        .lightbox-nav.next {
+            right: 20px;
+        }
+
+        .lightbox-nav.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Fundo clicável para fechar */
+        .lightbox-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            cursor: zoom-out;
+        }
+
         /* Responsividade */
         @media (max-width: 900px) {
             header { flex-direction: column; align-items: center; }
@@ -118,7 +209,9 @@
             .page-title h1 { font-size: 1.5rem; }
             .page-title h2 { font-size: 1.1rem; }
             .stack-item img { max-width: 100%; }
+            .lightbox-nav { font-size: 35px; padding: 8px 12px; }
         }
+ 
     </style>
 </head>
 <body>
@@ -153,25 +246,25 @@
             
             <!-- Imagem 1 -->
             <div class="stack-item">
-            
+              <a href="#lightbox1">
                 <img src="imagens/guara1.png" alt="Ilustração 1">
             </div>
 
             <!-- Imagem 2 -->
             <div class="stack-item">
-       
+         <a href="#lightbox2">
                 <img src="imagens/guara2.png" alt="Ilustração 2">
             </div>
 
             <!-- Imagem 3 -->
             <div class="stack-item">
-      
+        <a href="#lightbox3">
                 <img src="imagens/guara3.png" alt="Ilustração 3">
             </div>
 
             <!-- Imagem 4 -->
             <div class="stack-item">
-  
+    <a href="#lightbox4">
                 <img src="imagens/guara4.png">
 
                  <img src="imagens/image(9).png" alt="Ilustração 4">
@@ -179,7 +272,83 @@
 
         </div>
     </main>
+ <!-- ================== LIGHTBOXES ================== -->
+    
+    <!-- Lightbox 1 (Primeira imagem - sem botão esquerdo) -->
+    <div class="lightbox" id="lightbox1">
+        <a href="#" class="lightbox-background"></a>
+        <a href="#lightbox2" class="lightbox-nav next">›</a>
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/book5.png" alt="Ilustração 1 ampliada">
+    </div>
 
+    <!-- Lightbox 2 -->
+    <div class="lightbox" id="lightbox2">
+        <a href="#" class="lightbox-background"></a>
+        <a href="#lightbox1" class="lightbox-nav prev">‹</a>
+        <a href="#lightbox3" class="lightbox-nav next">›</a>
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio5.jpg" alt="Ilustração 2 ampliada">
+    </div>
+
+    <!-- Lightbox 3 -->
+    <div class="lightbox" id="lightbox3">
+        <a href="#" class="lightbox-background"></a>
+        <a href="#lightbox2" class="lightbox-nav prev">‹</a>
+        <a href="#lightbox4" class="lightbox-nav next">›</a>
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio1.jpg" alt="Ilustração 3 ampliada">
+    </div>
+
+    <!-- Lightbox 4 -->
+    <div class="lightbox" id="lightbox4">
+        <a href="#" class="lightbox-background"></a>
+        <a href="#lightbox3" class="lightbox-nav prev">‹</a>
+        <a href="#lightbox5" class="lightbox-nav next">›</a>
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio2.jpg" alt="Ilustração 4 ampliada">
+    </div>
+
+    <!-- Lightbox 5 -->
+    <div class="lightbox" id="lightbox5">
+        <a href="#" class="lightbox-background"></a>
+        <a href="#lightbox4" class="lightbox-nav prev">‹</a>
+        <a href="#lightbox6" class="lightbox-nav next">›</a>
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio3.jpg" alt="Ilustração 5 ampliada">
+    </div>
+
+    <!-- Lightbox 6 (Última imagem - sem botão direito) -->
+    <div class="lightbox" id="lightbox6">
+        <a href="#" class="lightbox-background"></a>
+        <a href="#lightbox5" class="lightbox-nav prev">‹</a>
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio4.jpg" alt="Ilustração 6 ampliada">
+    </div>
+
+    <script>
+        // Força todos os links a abrirem na mesma aba
+        document.addEventListener('click', function(event) {
+            var link = event.target.closest('a');
+            if (link && link.href.includes('sites.google.com')) {
+                event.preventDefault(); 
+                window.location.href = link.href; 
+            }
+        });
+
+        // Manter posição de scroll ao fechar lightbox
+        document.addEventListener('click', function(event) {
+            var link = event.target.closest('a');
+            
+            // Se clicou no X ou no fundo
+            if (link && (link.classList.contains('lightbox-close') || link.classList.contains('lightbox-background'))) {
+                event.preventDefault();
+                window.location.hash = '';
+                // Re-aplica a posição original
+                history.replaceState(null, '', window.location.pathname);
+            }
+        });
+        
     <script>
         // Força todos os links a abrirem na mesma aba
         document.addEventListener('click', function(event) {
