@@ -9,11 +9,8 @@
   gtag('js', new Date());
 
   gtag('config', 'G-R2HBV8J3ZS');
-
- 
-<script src="https://raw.githubusercontent.com/thiten/portfolio/main/lightbox.js" defer></script>  
- 
 </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Tenorio - Portfólio</title>
@@ -106,6 +103,12 @@
             margin: 0 auto;
             border-radius: 4px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .stack-item img:hover {
+            transform: scale(1.02);
         }
 
         .image-caption {
@@ -113,6 +116,53 @@
             font-size: 0.9rem;
             color: #777;
             font-style: italic;
+        }
+
+        /* ================== LIGHTBOX CSS ================== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 4px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 1;
+            transition: transform 0.2s;
+            z-index: 2001;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+            color: #C5F527;
         }
 
         /* Responsividade */
@@ -151,37 +201,87 @@
         <div class="page-title">
             <h1>The big tour</h1>
             <h2>O grande passeio</h2>
-            
         </div>
 
         <div class="image-stack">
             
             <!-- Imagem 1 -->
             <div class="stack-item">
-                <img src="imagens/book5.png" alt="Ilustração 1">
-            </div>
- <div class="stack-item">
-                <img src="imagens/passeio5.jpg" alt="Ilustração 2">
-            </div>
-             <div class="stack-item">
-                <img src="imagens/passeio1.jpg" alt="Ilustração 3">
+                <a href="#lightbox1">
+                    <img src="imagens/book5.png" alt="Ilustração 1">
+                </a>
             </div>
 
-             <div class="stack-item">
-                <img src="imagens/passeio2.jpg" alt="Ilustração 4">
-            </div>
- <div class="stack-item">
-                <img src="imagens/passeio3.jpg" alt="Ilustração 5">
-            </div>
-       </div>
- <div class="stack-item">
-                <img src="imagens/passeio4.jpg" alt="Ilustração 6">
+            <div class="stack-item">
+                <a href="#lightbox2">
+                    <img src="imagens/passeio5.jpg" alt="Ilustração 2">
+                </a>
             </div>
 
-          
+            <div class="stack-item">
+                <a href="#lightbox3">
+                    <img src="imagens/passeio1.jpg" alt="Ilustração 3">
+                </a>
+            </div>
+
+            <div class="stack-item">
+                <a href="#lightbox4">
+                    <img src="imagens/passeio2.jpg" alt="Ilustração 4">
+                </a>
+            </div>
+
+            <div class="stack-item">
+                <a href="#lightbox5">
+                    <img src="imagens/passeio3.jpg" alt="Ilustração 5">
+                </a>
+            </div>
+
+            <div class="stack-item">
+                <a href="#lightbox6">
+                    <img src="imagens/passeio4.jpg" alt="Ilustração 6">
+                </a>
+            </div>
 
         </div>
     </main>
+
+    <!-- ================== LIGHTBOXES ================== -->
+    
+    <!-- Lightbox 1 -->
+    <div class="lightbox" id="lightbox1">
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/book5.png" alt="Ilustração 1 ampliada">
+    </div>
+
+    <!-- Lightbox 2 -->
+    <div class="lightbox" id="lightbox2">
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio5.jpg" alt="Ilustração 2 ampliada">
+    </div>
+
+    <!-- Lightbox 3 -->
+    <div class="lightbox" id="lightbox3">
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio1.jpg" alt="Ilustração 3 ampliada">
+    </div>
+
+    <!-- Lightbox 4 -->
+    <div class="lightbox" id="lightbox4">
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio2.jpg" alt="Ilustração 4 ampliada">
+    </div>
+
+    <!-- Lightbox 5 -->
+    <div class="lightbox" id="lightbox5">
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio3.jpg" alt="Ilustração 5 ampliada">
+    </div>
+
+    <!-- Lightbox 6 -->
+    <div class="lightbox" id="lightbox6">
+        <a href="#" class="lightbox-close">&times;</a>
+        <img src="imagens/passeio4.jpg" alt="Ilustração 6 ampliada">
+    </div>
 
     <script>
         // Força todos os links a abrirem na mesma aba
