@@ -8,9 +8,8 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-R2HBV8J3ZS');
+  gtag('config', 'G-R2HBV8J3ZS');    
 </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Tenorio - Portfólio</title>
@@ -106,11 +105,10 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-
-        .stack-item img:hover {
+ .stack-item img:hover {
             transform: scale(1.02);
-        }
-
+       }
+        
         .image-caption {
             margin-top: 10px;
             font-size: 0.9rem;
@@ -118,7 +116,7 @@
             font-style: italic;
         }
 
-        /* ================== LIGHTBOX OVERLAY ================== */
+    /* ================== LIGHTBOX OVERLAY ================== */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -138,18 +136,35 @@
             display: flex;
         }
 
-        /* Modo 1: Ajustado à tela (padrão) */
-        .lightbox-overlay.fit-screen .lightbox-image {
-            max-width: 90vw;
-            max-height: 85vh;
-            width: auto;
-            height: auto;
-            cursor: zoom-in;
-        }
+/* Modo 1: Ajustado à tela (padrão) - SEMPRE MAIOR QUE A GALERIA */
+.lightbox-overlay.fit-screen .lightbox-image {
+    max-width: 95vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    cursor: zoom-in;
+}
 
-    /* Modo 2: Tamanho real (com scroll) */
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .lightbox-overlay.fit-screen .lightbox-image {
+        max-width: 92vw;
+        max-height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-overlay.fit-screen .lightbox-image {
+        max-width: 90vw;
+        max-height: 75vh;
+    }
+}
+
+/* Modo 2: Tamanho real (com scroll) - mantém proporção */
 .lightbox-overlay.full-size {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;  /* Scroll suave no iOS */
+    overscroll-behavior: contain;       /* Impede scroll da página */
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -165,13 +180,13 @@
     display: block;
 }
 
-        .lightbox-image {
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-            user-select: none;
-            -webkit-user-select: none;
-        }
+.lightbox-image {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    user-select: none;
+    -webkit-user-select: none;
+}
 
         /* Botões de navegação */
         .lightbox-nav {
@@ -247,8 +262,7 @@
             border-radius: 20px;
             z-index: 2002;
         }
-
-        /* Responsividade */
+    /* Responsividade */
         @media (max-width: 900px) {
             header { flex-direction: column; align-items: center; }
             nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
@@ -266,9 +280,9 @@
 <body>
 
     <!-- ================== CABEÇALHO ================== -->
-     <header>
+    <header>
         <div class="logo">
-            <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
+             <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
         </div>
         <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
@@ -287,41 +301,18 @@
     <main class="internal-body">
         
         <div class="page-title">
-            <h1>The big tour</h1>
-            <h2>O grande passeio</h2>
+            <h1>The lighthouse</h1>
+            <h2>O farol</h2>
         </div>
 
         <div class="image-stack">
             
             <!-- Imagem 1 -->
-            <div class="stack-item">
-                <img src="imagens/book5.png" alt="Ilustração 1" onclick="openLightbox(0)" class="gallery-img" data-index="0">
+           <div class="stack-item">
+                  <img src="editorial/thelhouse1.png" alt="Ilustração 1"  onclick="openLightbox(0)" class="gallery-img" data-index="0">
             </div>
-
-            <div class="stack-item">
-                <img src="imagens/passeio5.jpg" alt="Ilustração 2" onclick="openLightbox(1)" class="gallery-img" data-index="1">
-            </div>
-
-            <div class="stack-item">
-                <img src="imagens/passeio1.jpg" alt="Ilustração 3" onclick="openLightbox(2)" class="gallery-img" data-index="2">
-            </div>
-
-            <div class="stack-item">
-                <img src="imagens/passeio2.jpg" alt="Ilustração 4" onclick="openLightbox(3)" class="gallery-img" data-index="3">
-            </div>
-
-            <div class="stack-item">
-                <img src="imagens/passeio3.jpg" alt="Ilustração 5" onclick="openLightbox(4)" class="gallery-img" data-index="4">
-            </div>
-
-            <div class="stack-item">
-                <img src="imagens/passeio4.jpg" alt="Ilustração 6" onclick="openLightbox(5)" class="gallery-img" data-index="5">
-            </div>
-
-        </div>
     </main>
-
-    <!-- ================== LIGHTBOX ================== -->
+      <!-- ================== LIGHTBOX ================== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
         
@@ -330,18 +321,13 @@
         
         <img src="" alt="Imagem ampliada" class="lightbox-image" id="lightboxImg" onclick="toggleFullSize()">
         
-        <div class="lightbox-counter" id="lightboxCounter">1 / 6</div>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
     </div>
 
     <script>
         // ================== CONFIGURAÇÃO ==================
         const images = [
-            { src: 'imagens/book5.png', alt: 'Ilustração 1' },
-            { src: 'imagens/passeio5.jpg', alt: 'Ilustração 2' },
-            { src: 'imagens/passeio1.jpg', alt: 'Ilustração 3' },
-            { src: 'imagens/passeio2.jpg', alt: 'Ilustração 4' },
-            { src: 'imagens/passeio3.jpg', alt: 'Ilustração 5' },
-            { src: 'imagens/passeio4.jpg', alt: 'Ilustração 6' }
+            { src: 'editorial/thelhouse1.png', alt: 'Ilustração 1' },
         ];
 
         let currentIndex = 0;
@@ -468,6 +454,78 @@
                 e.preventDefault();
             }
         }, { passive: false });
+        
+        // ================== SUPORTE A PAN (MOVER COM O DEDO) ==================
+        
+        // Variáveis para controle de pan
+        let isPanning = false;
+        let startX = 0;
+        let startY = 0;
+        let startScrollLeft = 0;
+        let startScrollTop = 0;
+
+        // Detectar início do toque
+        lightboxImg.addEventListener('touchstart', function(e) {
+            if (isFullSize) {
+                isPanning = true;
+                const touch = e.touches[0];
+                startX = touch.clientX;
+                startY = touch.clientY;
+                startScrollLeft = overlay.scrollLeft;
+                startScrollTop = overlay.scrollTop;
+            }
+        }, { passive: true });
+
+        // Mover com o dedo
+        lightboxImg.addEventListener('touchmove', function(e) {
+            if (isPanning && isFullSize) {
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - startX;
+                const deltaY = touch.clientY - startY;
+                
+                overlay.scrollLeft = startScrollLeft - deltaX;
+                overlay.scrollTop = startScrollTop - deltaY;
+                
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Finalizar pan
+        lightboxImg.addEventListener('touchend', function() {
+            isPanning = false;
+        }, { passive: true });
+
+        // Suporte a mouse (para desktop com imagem grande)
+        let isMousePanning = false;
+        let mouseStartX = 0;
+        let mouseStartY = 0;
+        let mouseScrollLeft = 0;
+        let mouseScrollTop = 0;
+
+        lightboxImg.addEventListener('mousedown', function(e) {
+            if (isFullSize) {
+                isMousePanning = true;
+                mouseStartX = e.clientX;
+                mouseStartY = e.clientY;
+                mouseScrollLeft = overlay.scrollLeft;
+                mouseScrollTop = overlay.scrollTop;
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isMousePanning && isFullSize) {
+                const deltaX = e.clientX - mouseStartX;
+                const deltaY = e.clientY - mouseStartY;
+                
+                overlay.scrollLeft = mouseScrollLeft - deltaX;
+                overlay.scrollTop = mouseScrollTop - deltaY;
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isMousePanning = false;
+        });
     </script>
     
     <footer>
