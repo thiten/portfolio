@@ -146,13 +146,17 @@
     cursor: zoom-in;
 }
 
-    /* Modo 2: Tamanho real (com scroll) */
+/* Modo 2: Tamanho real (com scroll) - mantém proporção */
 .lightbox-overlay.full-size {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;  /* Scroll suave no iOS */
+    overscroll-behavior: contain;       /* Impede scroll da página */
     align-items: center;
     justify-content: center;
     padding: 20px;
 }
+
+
 
 .lightbox-overlay.full-size .lightbox-image {
     max-width: none;
