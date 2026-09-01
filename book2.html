@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
- /* ================== RESET E FONTE ================== */
+/* ================== RESET E FONTE ================== */
 * { 
     margin: 0; 
     padding: 0; 
@@ -91,7 +91,7 @@ nav a:hover {
 
 /* ================== CORPO INTERNO ================== */
 .internal-body {
-    max-width: 1400px;
+    max-width: 900px;  /* Reduzido de 1400px para 900px */
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -135,7 +135,7 @@ nav a:hover {
 
 .stack-item img {
     width: 100%;
-    max-width: 1366px;
+    max-width: 700px;  /* Reduzido de 1366px para 700px */
     height: auto;
     display: block;
     margin: 0 auto;
@@ -176,10 +176,10 @@ nav a:hover {
     display: flex;
 }
 
-/* IMAGEM AMPLIADA - MÍNIMO 30% MAIOR QUE A ORIGINAL */
+/* IMAGEM NO LIGHTBOX - TAMANHO INICIAL AJUSTADO */
 .lightbox-image {
-    max-width: 130vw;   /* Permite até 130% da largura da tela */
-    max-height: 130vh;  /* Permite até 130% da altura da tela */
+    max-width: 95vw;        /* Máximo de 95% da largura da tela */
+    max-height: 90vh;       /* Máximo de 90% da altura da tela */
     width: auto;
     height: auto;
     border-radius: 4px;
@@ -191,7 +191,22 @@ nav a:hover {
     object-fit: contain;
 }
 
-/* Modo ampliado (zoom-in) */
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .lightbox-image {
+        max-width: 92vw;
+        max-height: 85vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-image {
+        max-width: 90vw;
+        max-height: 80vh;
+    }
+}
+
+/* ================== ZOOM - MÍNIMO 30% MAIOR ================== */
 .lightbox-overlay.zoomed .lightbox-image {
     cursor: zoom-out;
     max-width: none;
@@ -203,22 +218,12 @@ nav a:hover {
 
 /* Ajustes para telas menores - garante mínimo de 130% */
 @media (max-width: 768px) {
-    .lightbox-image {
-        max-width: 120vw;
-        max-height: 120vh;
-    }
-    
     .lightbox-overlay.zoomed .lightbox-image {
         transform: scale(1.3);
     }
 }
 
 @media (max-width: 480px) {
-    .lightbox-image {
-        max-width: 115vw;
-        max-height: 115vh;
-    }
-    
     .lightbox-overlay.zoomed .lightbox-image {
         transform: scale(1.25);  /* Mínimo 25% em telas muito pequenas */
     }
