@@ -326,6 +326,107 @@
     </main>
 
     <script>
+      // ================== CONFIGURAÇÃO ==================
+        const images = [
+            { src: 'imagens/little1.jpg ', alt: 'Ilustração 1' },
+            { src: 'imagens/little2.jpg ', alt: 'Ilustração 2' },
+            { src: 'imagens/little3.jpg ', alt: 'Ilustração 3' },
+           
+        ];
+
+        let currentIndex = 0;
+        let originalScrollY = 0;
+        let isFullSize = false;
+
+        const overlay = document.getElementById('lightboxOverlay');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('lightboxCounter');
+
+        // ================== FUNÇÕES ==================
+
+        // Abrir lightbox
+        function openLightbox(index) {
+            currentIndex = index;
+            originalScrollY = window.scrollY;
+            
+            // Salva posição do scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Exibe overlay
+            overlay.classList.add('active');
+            overlay.classList.add('fit-screen');
+            isFullSize = false;
+            
+            // Carrega imagem
+            updateImage();
+        }
+
+        // Fechar lightbox
+        function closeLightbox() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Restaura posição do scroll
+            window.scrollTo(0, originalScrollY);
+        }
+
+        // Navegar para anterior
+        function prevImage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateImage();
+            }
+        }
+
+        // Navegar para próxima
+        function nextImage() {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                updateImage();
+            }
+        }
+
+        // Atualizar imagem atual
+        function updateImage() {
+            const img = images[currentIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            
+            // Atualiza contador
+            counter.textContent = `${currentIndex + 1} / ${images.length}`;
+            
+            // Atualiza botões de navegação
+            prevBtn.classList.toggle('disabled', currentIndex === 0);
+            nextBtn.classList.toggle('disabled', currentIndex === images.length - 1);
+            
+            // Reseta para modo fit-screen
+            overlay.classList.add('fit-screen');
+            overlay.classList.remove('full-size');
+            isFullSize = false;
+            lightboxImg.style.cursor = 'zoom-in';
+        }
+
+        // Alternar entre modo fit-screen e tamanho real
+        function toggleFullSize() {
+            if (isFullSize) {
+                // Voltar para modo ajustado
+                overlay.classList.add('fit-screen');
+                overlay.classList.remove('full-size');
+                isFullSize = false;
+                lightboxImg.style.cursor = 'zoom-in';
+            } else {
+                // Mudar para tamanho real
+                overlay.classList.remove('fit-screen');
+                overlay.classList.add('full-size');
+                isFullSize = true;
+                lightboxImg.style.cursor = 'zoom-out';
+            }
+        }
+
+        // ================== EVENTOS ==================
+
         // Força todos os links a abrirem na mesma aba
         document.addEventListener('click', function(event) {
             var link = event.target.closest('a');
@@ -334,6 +435,29 @@
                 window.location.href = link.href; 
             }
         });
+
+        // Teclado: ESC para fechar, setas para navegar
+        document.addEventListener('keydown', function(e) {
+            if (overlay.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+            }
+        });
+
+        // Previne scroll da página quando lightbox está aberto (exceto no modo full-size)
+        overlay.addEventListener('wheel', function(e) {
+            if (!isFullSize) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Previne touch scroll quando lightbox está aberto (exceto no modo full-size)
+        overlay.addEventListener('touchmove', function(e) {
+            if (!isFullSize) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
     
     <footer>
