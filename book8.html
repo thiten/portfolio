@@ -116,7 +116,7 @@
             font-style: italic;
         }
 
-      /* ================== LIGHTBOX OVERLAY ================== */
+   /* ================== LIGHTBOX OVERLAY ================== */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -136,24 +136,31 @@
             display: flex;
         }
 
-    /* Modo 1: Ajustado à tela (padrão) - SEMPRE MAIOR QUE A GALERIA */
+/* Modo 1: Ajustado à tela (padrão) - SEMPRE MAIOR QUE A GALERIA */
 .lightbox-overlay.fit-screen .lightbox-image {
-    max-width: 100vw;        /* Máximo de 95% da largura */
-    max-height: 100vh;       /* Máximo de 90% da altura */
+    max-width: 95vw;        /* Máximo de 95% da largura */
+    max-height: 90vh;       /* Máximo de 90% da altura */
     width: auto;
     height: auto;
-    object-fit: contain;    /* Garante que a imagem não distorça */
     cursor: zoom-in;
 }
 
-    /* Modo 2: Tamanho real (com scroll) */
-.lightbox-overlay.full-size {
-    overflow: auto;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .lightbox-overlay.fit-screen .lightbox-image {
+        max-width: 92vw;
+        max-height: 80vh;
+    }
 }
 
+@media (max-width: 480px) {
+    .lightbox-overlay.fit-screen .lightbox-image {
+        max-width: 90vw;
+        max-height: 75vh;
+    }
+}
+
+/* Modo 2: Tamanho real (com scroll) - mantém proporção */
 .lightbox-overlay.full-size .lightbox-image {
     max-width: none;
     max-height: none;
@@ -164,13 +171,13 @@
     display: block;
 }
 
-        .lightbox-image {
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-            user-select: none;
-            -webkit-user-select: none;
-        }
+.lightbox-image {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    user-select: none;
+    -webkit-user-select: none;
+}
 
         /* Botões de navegação */
         .lightbox-nav {
