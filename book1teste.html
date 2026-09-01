@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-       /* ================== RESET E FONTE ================== */
+         /* ================== RESET E FONTE ================== */
 * { 
     margin: 0; 
     padding: 0; 
@@ -91,7 +91,7 @@ nav a:hover {
 
 /* ================== CORPO INTERNO ================== */
 .internal-body {
-    max-width: 1400px;
+    max-width: 900px;  /* Reduzido de 1400px para 900px */
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -135,7 +135,7 @@ nav a:hover {
 
 .stack-item img {
     width: 100%;
-    max-width: 1366px;
+    max-width: 700px;  /* Reduzido de 1366px para 700px */
     height: auto;
     display: block;
     margin: 0 auto;
@@ -176,10 +176,10 @@ nav a:hover {
     display: flex;
 }
 
-/* IMAGEM AMPLIADA - MÍNIMO 30% MAIOR QUE A ORIGINAL */
+/* IMAGEM NO LIGHTBOX - TAMANHO INICIAL AJUSTADO */
 .lightbox-image {
-    max-width: 130vw;   /* Permite até 130% da largura da tela */
-    max-height: 130vh;  /* Permite até 130% da altura da tela */
+    max-width: 95vw;        /* Máximo de 95% da largura da tela */
+    max-height: 90vh;       /* Máximo de 90% da altura da tela */
     width: auto;
     height: auto;
     border-radius: 4px;
@@ -191,7 +191,22 @@ nav a:hover {
     object-fit: contain;
 }
 
-/* Modo ampliado (zoom-in) */
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .lightbox-image {
+        max-width: 92vw;
+        max-height: 85vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-image {
+        max-width: 90vw;
+        max-height: 80vh;
+    }
+}
+
+/* ================== ZOOM - MÍNIMO 30% MAIOR ================== */
 .lightbox-overlay.zoomed .lightbox-image {
     cursor: zoom-out;
     max-width: none;
@@ -203,22 +218,12 @@ nav a:hover {
 
 /* Ajustes para telas menores - garante mínimo de 130% */
 @media (max-width: 768px) {
-    .lightbox-image {
-        max-width: 120vw;
-        max-height: 120vh;
-    }
-    
     .lightbox-overlay.zoomed .lightbox-image {
         transform: scale(1.3);
     }
 }
 
 @media (max-width: 480px) {
-    .lightbox-image {
-        max-width: 115vw;
-        max-height: 115vh;
-    }
-    
     .lightbox-overlay.zoomed .lightbox-image {
         transform: scale(1.25);  /* Mínimo 25% em telas muito pequenas */
     }
@@ -334,9 +339,9 @@ nav a:hover {
 <body>
 
     <!-- ================== CABEÇALHO ================== -->
-     <header>
+       <header>
         <div class="logo">
-            <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
+          <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
         </div>
         <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
@@ -355,133 +360,43 @@ nav a:hover {
     <main class="internal-body">
         
         <div class="page-title">
-            <h1>The big tour</h1>
-            <h2>O grande passeio</h2>
-            <p>Full project coming soon</p>
-            <p>projeto completo em breve</p>
+            <h1>Historic figures</h1>
+            <h2>Figuras históricas</h2>
         </div>
 
         <div class="image-stack">
             
             <!-- Imagem 1 -->
             <div class="stack-item">
-                <img src="guara2.png" alt="Ilustração 1" onclick="openLightbox(0)" class="gallery-img" data-index="0">
-            </div>
 
-        </div>
+
+<style>
+    .container-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+        gap: 20px;
+    }
+    
+    .container-grid img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<div class="container-grid">
+       <img src="editorial/hist1.png" alt="Ilustração 1">
+       <img src="editorial/hist2.png" alt="Ilustração 2">
+       <img src="editorial/hist3.png" alt="IIlustração 3">
+</div>
+               
+           
+            </div>
+ <div class="stack-item">
+                <img src="editorial/hist4.png" alt="Ilustração 4">
+                   </div>
     </main>
 
-    <!-- ================== LIGHTBOX ================== -->
-    <div class="lightbox-overlay" id="lightboxOverlay">
-        <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
-        
-        <a href="javascript:void(0)" class="lightbox-nav prev" id="prevBtn" onclick="prevImage()">‹</a>
-        <a href="javascript:void(0)" class="lightbox-nav next" id="nextBtn" onclick="nextImage()">›</a>
-        
-        <img src="" alt="Imagem ampliada" class="lightbox-image" id="lightboxImg" onclick="toggleFullSize()">
-        
-        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
-    </div>
-
     <script>
-        // ================== CONFIGURAÇÃO ==================
-        const images = [
-            { src: 'imagens/guara2.png', alt: 'Ilustração 1' },
-        ];
-
-        let currentIndex = 0;
-        let originalScrollY = 0;
-        let isFullSize = false;
-
-        const overlay = document.getElementById('lightboxOverlay');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const counter = document.getElementById('lightboxCounter');
-
-        // ================== FUNÇÕES ==================
-
-        // Abrir lightbox
-        function openLightbox(index) {
-            currentIndex = index;
-            originalScrollY = window.scrollY;
-            
-            // Salva posição do scroll
-            document.body.style.overflow = 'hidden';
-            
-            // Exibe overlay
-            overlay.classList.add('active');
-            overlay.classList.add('fit-screen');
-            isFullSize = false;
-            
-            // Carrega imagem
-            updateImage();
-        }
-
-        // Fechar lightbox
-        function closeLightbox() {
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-            
-            // Restaura posição do scroll
-            window.scrollTo(0, originalScrollY);
-        }
-
-        // Navegar para anterior
-        function prevImage() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateImage();
-            }
-        }
-
-        // Navegar para próxima
-        function nextImage() {
-            if (currentIndex < images.length - 1) {
-                currentIndex++;
-                updateImage();
-            }
-        }
-
-        // Atualizar imagem atual
-        function updateImage() {
-            const img = images[currentIndex];
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            
-            // Atualiza contador
-            counter.textContent = `${currentIndex + 1} / ${images.length}`;
-            
-            // Atualiza botões de navegação
-            prevBtn.classList.toggle('disabled', currentIndex === 0);
-            nextBtn.classList.toggle('disabled', currentIndex === images.length - 1);
-            
-            // Reseta para modo fit-screen
-            overlay.classList.add('fit-screen');
-            overlay.classList.remove('full-size');
-            isFullSize = false;
-            lightboxImg.style.cursor = 'zoom-in';
-        }
-
-        // Alternar entre modo fit-screen e tamanho real
-        function toggleFullSize() {
-            if (isFullSize) {
-                // Voltar para modo ajustado
-                overlay.classList.add('fit-screen');
-                overlay.classList.remove('full-size');
-                isFullSize = false;
-                lightboxImg.style.cursor = 'zoom-in';
-            } else {
-                // Mudar para tamanho real
-                overlay.classList.remove('fit-screen');
-                overlay.classList.add('full-size');
-                isFullSize = true;
-                lightboxImg.style.cursor = 'zoom-out';
-            }
-        }
-
-        // ================== EVENTOS ==================
-
         // Força todos os links a abrirem na mesma aba
         document.addEventListener('click', function(event) {
             var link = event.target.closest('a');
@@ -489,101 +404,6 @@ nav a:hover {
                 event.preventDefault(); 
                 window.location.href = link.href; 
             }
-        });
-
-        // Teclado: ESC para fechar, setas para navegar
-        document.addEventListener('keydown', function(e) {
-            if (overlay.classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') prevImage();
-                if (e.key === 'ArrowRight') nextImage();
-            }
-        });
-
-        // Previne scroll da página quando lightbox está aberto (exceto no modo full-size)
-        overlay.addEventListener('wheel', function(e) {
-            if (!isFullSize) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Previne touch scroll quando lightbox está aberto (exceto no modo full-size)
-        overlay.addEventListener('touchmove', function(e) {
-            if (!isFullSize) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // ================== SUPORTE A PAN (MOVER COM O DEDO) ==================
-        
-        // Variáveis para controle de pan
-        let isPanning = false;
-        let startX = 0;
-        let startY = 0;
-        let startScrollLeft = 0;
-        let startScrollTop = 0;
-
-        // Detectar início do toque
-        lightboxImg.addEventListener('touchstart', function(e) {
-            if (isFullSize) {
-                isPanning = true;
-                const touch = e.touches[0];
-                startX = touch.clientX;
-                startY = touch.clientY;
-                startScrollLeft = overlay.scrollLeft;
-                startScrollTop = overlay.scrollTop;
-            }
-        }, { passive: true });
-
-        // Mover com o dedo
-        lightboxImg.addEventListener('touchmove', function(e) {
-            if (isPanning && isFullSize) {
-                const touch = e.touches[0];
-                const deltaX = touch.clientX - startX;
-                const deltaY = touch.clientY - startY;
-                
-                overlay.scrollLeft = startScrollLeft - deltaX;
-                overlay.scrollTop = startScrollTop - deltaY;
-                
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Finalizar pan
-        lightboxImg.addEventListener('touchend', function() {
-            isPanning = false;
-        }, { passive: true });
-
-        // Suporte a mouse (para desktop com imagem grande)
-        let isMousePanning = false;
-        let mouseStartX = 0;
-        let mouseStartY = 0;
-        let mouseScrollLeft = 0;
-        let mouseScrollTop = 0;
-
-        lightboxImg.addEventListener('mousedown', function(e) {
-            if (isFullSize) {
-                isMousePanning = true;
-                mouseStartX = e.clientX;
-                mouseStartY = e.clientY;
-                mouseScrollLeft = overlay.scrollLeft;
-                mouseScrollTop = overlay.scrollTop;
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener('mousemove', function(e) {
-            if (isMousePanning && isFullSize) {
-                const deltaX = e.clientX - mouseStartX;
-                const deltaY = e.clientY - mouseStartY;
-                
-                overlay.scrollLeft = mouseScrollLeft - deltaX;
-                overlay.scrollTop = mouseScrollTop - deltaY;
-            }
-        });
-
-        document.addEventListener('mouseup', function() {
-            isMousePanning = false;
         });
     </script>
     
