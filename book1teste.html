@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2HBV8J3ZS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-R2HBV8J3ZS');    
+  gtag('config', 'G-R2HBV8J3ZS');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +59,7 @@
 
         /* ================== CORPO INTERNO ================== */
         .internal-body {
-            max-width: 1400px;
+            max-width: 1400px;  /* Aumentado para permitir imagens maiores */
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -82,6 +82,12 @@
             color: #b8c7e0;
         }
 
+        .page-title p {
+            color: #888;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
         .image-stack {
             display: flex;
             flex-direction: column;
@@ -96,7 +102,7 @@
 
         .stack-item img {
             width: 100%;
-            max-width: 1600px;
+            max-width: 1366px;  /* Permite imagem completa em telas grandes */
             height: auto;
             display: block;
             margin: 0 auto;
@@ -105,10 +111,11 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
- .stack-item img:hover {
+
+        .stack-item img:hover {
             transform: scale(1.02);
-       }
-        
+        }
+
         .image-caption {
             margin-top: 10px;
             font-size: 0.9rem;
@@ -116,7 +123,7 @@
             font-style: italic;
         }
 
-      /* ================== LIGHTBOX OVERLAY ================== */
+        /* ================== LIGHTBOX OVERLAY ================== */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -136,47 +143,57 @@
             display: flex;
         }
 
-/* Modo 1: Ajustado à tela (padrão) - SEMPRE MAIOR QUE A GALERIA */
-.lightbox-overlay.fit-screen .lightbox-image {
-    max-width: 205vw;        /* Máximo de 95% da largura */
-    max-height: 200vh;       /* Máximo de 90% da altura */
-    width: auto;
-    height: auto;
-    cursor: zoom-in;
-}
+        /* Modo 1: Ajustado à tela (padrão) */
+        .lightbox-overlay.fit-screen .lightbox-image {
+            max-width: 95vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            cursor: zoom-in;
+        }
 
-/* Ajustes para telas menores */
-@media (max-width: 768px) {
-    .lightbox-overlay.fit-screen .lightbox-image {
-        max-width: 92vw;
-        max-height: 80vh;
-    }
-}
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .lightbox-overlay.fit-screen .lightbox-image {
+                max-width: 92vw;
+                max-height: 80vh;
+            }
+        }
 
-@media (max-width: 480px) {
-    .lightbox-overlay.fit-screen .lightbox-image {
-        max-width: 90vw;
-        max-height: 75vh;
-    }
-}
+        @media (max-width: 480px) {
+            .lightbox-overlay.fit-screen .lightbox-image {
+                max-width: 90vw;
+                max-height: 75vh;
+            }
+        }
 
-/* Modo 2: Tamanho real (com scroll) - mantém proporção */
-.lightbox-overlay.full-size {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;  /* Scroll suave no iOS */
-    overscroll-behavior: contain;       /* Impede scroll da página */
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+        /* Modo 2: Tamanho real (com scroll) */
+        .lightbox-overlay.full-size {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-.lightbox-image {
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-    user-select: none;
-    -webkit-user-select: none;
-}
+        .lightbox-overlay.full-size .lightbox-image {
+            max-width: none;
+            max-height: none;
+            width: auto;
+            height: auto;
+            cursor: zoom-out;
+            margin: auto;
+            display: block;
+        }
+
+        .lightbox-image {
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+            user-select: none;
+            -webkit-user-select: none;
+        }
 
         /* Botões de navegação */
         .lightbox-nav {
@@ -252,7 +269,8 @@
             border-radius: 20px;
             z-index: 2002;
         }
-    /* Responsividade */
+
+        /* Responsividade */
         @media (max-width: 900px) {
             header { flex-direction: column; align-items: center; }
             nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
@@ -270,9 +288,9 @@
 <body>
 
     <!-- ================== CABEÇALHO ================== -->
-    <header>
+     <header>
         <div class="logo">
-             <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
+            <img src="imagens/thiten.png" style="width: 50%; height: auto; margin-top: -5px">
         </div>
         <nav>
             <a href="https://thiten.github.io/portfolio/">Home</a>
@@ -291,35 +309,23 @@
     <main class="internal-body">
         
         <div class="page-title">
-            <h1>Guará Guaraná visita a cidade </h1>
-            <h2>Guara Guarana visits the city</h2>
+            <h1>The big tour</h1>
+            <h2>O grande passeio</h2>
+            <p>Full project coming soon</p>
+            <p>projeto completo em breve</p>
         </div>
 
         <div class="image-stack">
             
             <!-- Imagem 1 -->
-           <div class="stack-item">
-                <img src="imagens/guara1.png" alt="Ilustração 1" onclick="openLightbox(0)" class="gallery-img" data-index="0">
-            </div>
-
-            <!-- Imagem 2 -->
-        <div class="stack-item">
-                <img src="imagens/guara2.png" alt="Ilustração 2" onclick="openLightbox(1)" class="gallery-img" data-index="1">
-            </div>
-
-            <!-- Imagem 3 -->
-        <div class="stack-item">
-                <img src="imagens/guara3.png" alt="Ilustração 3" onclick="openLightbox(2)" class="gallery-img" data-index="2">
-            </div>
-
-            <!-- Imagem 4 -->
-        <div class="stack-item">
-                <img src="imagens/guara4.png" alt="Ilustração 4" onclick="openLightbox(3)" class="gallery-img" data-index="3">
+            <div class="stack-item">
+                <img src="imagens/passeio1.png" alt="Ilustração 1" onclick="openLightbox(0)" class="gallery-img" data-index="0">
             </div>
 
         </div>
     </main>
-      <!-- ================== LIGHTBOX ================== -->
+
+    <!-- ================== LIGHTBOX ================== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
         
@@ -328,17 +334,13 @@
         
         <img src="" alt="Imagem ampliada" class="lightbox-image" id="lightboxImg" onclick="toggleFullSize()">
         
-        <div class="lightbox-counter" id="lightboxCounter">1 / 6</div>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
     </div>
 
     <script>
         // ================== CONFIGURAÇÃO ==================
         const images = [
-            { src: 'imagens/guara1.png', alt: 'Ilustração 1' },
-            { src: 'imagens/guara2.png', alt: 'Ilustração 2' },
-            { src: 'imagens/guara3.png', alt: 'Ilustração 3' },
-            { src: 'imagens/guara4.png', alt: 'Ilustração 4' },
-    
+            { src: 'imagens/passeio1.png', alt: 'Ilustração 1' },
         ];
 
         let currentIndex = 0;
@@ -452,9 +454,6 @@
             }
         });
 
-
-        
-        
         // Previne scroll da página quando lightbox está aberto (exceto no modo full-size)
         overlay.addEventListener('wheel', function(e) {
             if (!isFullSize) {
@@ -468,6 +467,78 @@
                 e.preventDefault();
             }
         }, { passive: false });
+
+        // ================== SUPORTE A PAN (MOVER COM O DEDO) ==================
+        
+        // Variáveis para controle de pan
+        let isPanning = false;
+        let startX = 0;
+        let startY = 0;
+        let startScrollLeft = 0;
+        let startScrollTop = 0;
+
+        // Detectar início do toque
+        lightboxImg.addEventListener('touchstart', function(e) {
+            if (isFullSize) {
+                isPanning = true;
+                const touch = e.touches[0];
+                startX = touch.clientX;
+                startY = touch.clientY;
+                startScrollLeft = overlay.scrollLeft;
+                startScrollTop = overlay.scrollTop;
+            }
+        }, { passive: true });
+
+        // Mover com o dedo
+        lightboxImg.addEventListener('touchmove', function(e) {
+            if (isPanning && isFullSize) {
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - startX;
+                const deltaY = touch.clientY - startY;
+                
+                overlay.scrollLeft = startScrollLeft - deltaX;
+                overlay.scrollTop = startScrollTop - deltaY;
+                
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Finalizar pan
+        lightboxImg.addEventListener('touchend', function() {
+            isPanning = false;
+        }, { passive: true });
+
+        // Suporte a mouse (para desktop com imagem grande)
+        let isMousePanning = false;
+        let mouseStartX = 0;
+        let mouseStartY = 0;
+        let mouseScrollLeft = 0;
+        let mouseScrollTop = 0;
+
+        lightboxImg.addEventListener('mousedown', function(e) {
+            if (isFullSize) {
+                isMousePanning = true;
+                mouseStartX = e.clientX;
+                mouseStartY = e.clientY;
+                mouseScrollLeft = overlay.scrollLeft;
+                mouseScrollTop = overlay.scrollTop;
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isMousePanning && isFullSize) {
+                const deltaX = e.clientX - mouseStartX;
+                const deltaY = e.clientY - mouseStartY;
+                
+                overlay.scrollLeft = mouseScrollLeft - deltaX;
+                overlay.scrollTop = mouseScrollTop - deltaY;
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isMousePanning = false;
+        });
     </script>
     
     <footer>
