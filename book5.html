@@ -119,6 +119,157 @@
             .page-title h2 { font-size: 1.1rem; }
             .stack-item img { max-width: 100%; }
         }
+
+         /* ================== LIGHTBOX OVERLAY ================== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+/* Modo 1: Ajustado à tela (padrão) - SEMPRE MAIOR QUE A GALERIA */
+.lightbox-overlay.fit-screen .lightbox-image {
+    max-width: 95vw;        /* Máximo de 95% da largura */
+    max-height: 90vh;       /* Máximo de 90% da altura */
+    width: auto;
+    height: auto;
+    cursor: zoom-in;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .lightbox-overlay.fit-screen .lightbox-image {
+        max-width: 92vw;
+        max-height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-overlay.fit-screen .lightbox-image {
+        max-width: 90vw;
+        max-height: 75vh;
+    }
+}
+
+/* Modo 2: Tamanho real (com scroll) - mantém proporção */
+.lightbox-overlay.full-size .lightbox-image {
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
+    cursor: zoom-out;
+    margin: auto;
+    display: block;
+}
+
+.lightbox-image {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+        /* Botões de navegação */
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: all 0.2s;
+            z-index: 2002;
+            user-select: none;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .lightbox-nav:hover {
+            color: #C5F527;
+            background: rgba(0,0,0,0.6);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav.prev {
+            left: 15px;
+        }
+
+        .lightbox-nav.next {
+            right: 15px;
+        }
+
+        .lightbox-nav.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Botão fechar */
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 1;
+            transition: transform 0.2s;
+            z-index: 2002;
+            cursor: pointer;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 50%;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+            color: #C5F527;
+            background: rgba(0,0,0,0.6);
+        }
+
+        /* Contador de imagens */
+        .lightbox-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 2002;
+        }
+    /* Responsividade */
+        @media (max-width: 900px) {
+            header { flex-direction: column; align-items: center; }
+            nav { flex-wrap: wrap; justify-content: center; gap: 15px; margin-left: 0; }
+            .page-title h1 { font-size: 1.5rem; }
+            .page-title h2 { font-size: 1.1rem; }
+            .stack-item img { max-width: 100%; }
+            
+            .lightbox-nav { font-size: 35px; padding: 8px 12px; }
+            .lightbox-nav.prev { left: 10px; }
+            .lightbox-nav.next { right: 10px; }
+            .lightbox-close { font-size: 30px; padding: 8px 12px; }
+        }
     </style>
 </head>
 <body>
